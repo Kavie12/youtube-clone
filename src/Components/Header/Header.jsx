@@ -98,7 +98,7 @@ const MobileSearchBtn = () => {
 
 function Header() {
     return (
-        <div className='fixed top-0 left-0 right-0 bg-black flex pl-4 pr-8 justify-between items-center gap-x-12 max-[420px]:gap-x-0 max-[420px]:pr-4'>
+        <div className='fixed top-0 left-0 right-0 bg-black z-10 flex pl-4 pr-8 justify-between items-center gap-x-12 max-[420px]:gap-x-0 max-[420px]:pr-4'>
             <div className='flex items-center gap-x-4'>
                 <Menu />
                 <Logo />
