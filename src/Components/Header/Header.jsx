@@ -6,6 +6,7 @@ import { HiMagnifyingGlass } from "react-icons/hi2";
 import { HiMiniMicrophone } from "react-icons/hi2";
 import { RiVideoAddLine } from "react-icons/ri";
 import { FaRegBell } from "react-icons/fa";
+import { IoMdArrowBack } from "react-icons/io";
 import ProfilePic from "../../Images/profile-pic.png";
 import YTLogo from "../../Images/yt-logo.svg";
 
@@ -29,7 +30,7 @@ const Logo = () => {
 }
 
 const Search = () => {
-    const [focus, setFocus] = useState(1);
+    const [focus, setFocus] = useState(0);
     return (
         <div className='flex items-stretch w-full'>
             <div className={`flex items-center border border-r-0 pl-4 rounded-l-full border-blue-500/65 ${(focus) ? 'visible' : 'invisible'}`}>
@@ -45,7 +46,7 @@ const Search = () => {
 
 const VoiceSearch = () => {
     return (
-        <div className='cursor-pointer bg-white/15 hover:bg-white/20 p-2.5 rounded-full'>
+        <div className='cursor-pointer min-[620px]:bg-white/15 hover:bg-white/20 p-2.5 rounded-full'>
             <HiMiniMicrophone className='text-white text-xl' />
         </div>
     )
@@ -61,7 +62,7 @@ const CreateBtn = () => {
 
 const NotificationBtn = () => {
     return (
-        <div className='cursor-pointer hover:bg-white/15 rounded-full p-3'>
+        <div className='cursor-pointer hover:bg-white/15 rounded-full p-3 max-[460px]:hidden'>
             <FaRegBell className='text-white text-xl' />
         </div>
     )
@@ -75,18 +76,39 @@ const ProfileBtn = () => {
     )
 }
 
+const MobileSearchBtn = () => {
+    const [display, setDisplay] = useState(0);
+    return (
+        <>
+            <div onClick={() => setDisplay(1)} className='cursor-pointer hover:bg-white/15 rounded-full p-3 min-[620px]:hidden'>
+                <HiMagnifyingGlass className='text-white text-xl' />
+            </div>
+            <div className={`absolute left-0 top-0 right-0 bg-black px-4 py-2 items-center ${(display) ? 'flex' : 'hidden'} justify-between min-[620px]:hidden`}>
+                <div onClick={() => setDisplay(0)} className='cursor-pointer hover:bg-white/15 rounded-full p-3'>
+                    <IoMdArrowBack className='text-white text-2xl' />
+                </div>
+                <div className='flex gap-x-4 w-full'>
+                    <Search />
+                    <VoiceSearch />
+                </div>
+            </div>
+        </>
+    )
+}
+
 function Header() {
     return (
-        <div className='bg-black flex pl-4 pr-8 justify-between items-center gap-x-12'>
+        <div className='fixed top-0 left-0 right-0 bg-black flex pl-4 pr-8 justify-between items-center gap-x-12 max-[420px]:gap-x-0 max-[420px]:pr-4'>
             <div className='flex items-center gap-x-4'>
                 <Menu />
                 <Logo />
             </div>
-            <div className='flex items-center gap-x-4 w-2/5'>
+            <div className='flex items-center gap-x-4 w-2/5 max-[620px]:hidden'>
                 <Search />
                 <VoiceSearch />
             </div>
-            <div className='flex items-center gap-x-2'>
+            <div className='flex items-center gap-x-2 max-[620px]:gap-x-0'>
+                <MobileSearchBtn />
                 <CreateBtn />
                 <NotificationBtn />
                 <ProfileBtn />
