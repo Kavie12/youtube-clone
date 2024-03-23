@@ -9,7 +9,13 @@ export default {
       "Poppins": ['Poppins'],
       "Roboto": ['Roboto'],
     },
-    extend: {},
+    extend: {
+      colors: {
+        'yt-white': '#f1f1f1',
+        'yt-black': '#0f0f0f',
+        'yt-gray': '#212121',
+      },
+    },
   },
   plugins: [],
 }
