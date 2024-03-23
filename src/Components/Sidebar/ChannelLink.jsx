@@ -1,10 +1,10 @@
-import Link from "./Link";
+import SidebarLink from "./SidebarLink";
 
 const ChannelLink = props => {
     return (
-        <Link to={props.to} text={props.text}>
-            <img src={props.img} alt="channel_img" className='w-6 rounded-full' />
-        </Link>
+        <SidebarLink to={props.to} text={props.text}>
+            <img src={'Profile/' + props.profile} alt="channel_img" className='w-6 rounded-full' />
+        </SidebarLink>
     )
 }
 
