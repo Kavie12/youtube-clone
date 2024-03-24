@@ -23,7 +23,7 @@ const Search = () => {
                     <HiMagnifyingGlass className='text-yt-white text-lg' />
                 </div>
                 <input type="text" placeholder='Search' onFocus={() => setFocus(1)} onBlur={() => setFocus(0)} className={`font-Poppins text-sm bg-transparent border px-4 ${(focus) ? 'border-blue-500/65 rounded-l-none border-l-0' : 'border-yt-white/20'} py-2 text-yt-white rounded-l-full focus:outline-none w-full`} />
-                <div className={`absolute bg-yt-gray top-full mt-1 pt-4 rounded-lg left-0 right-0 ${(!focus) ? 'hidden' : ''}`}>
+                <div className={`absolute z-20 bg-yt-gray top-full mt-1 pt-4 rounded-lg left-0 right-0 ${(!focus) ? 'hidden' : ''}`}>
                     <SearchItem text="Mastersoft new projects" />
                     <SearchItem text="Mastersoft new apps" />
                     <SearchItem text="Mastersoft new websites" />

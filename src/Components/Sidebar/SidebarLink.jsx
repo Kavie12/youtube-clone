@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { sidebarContext } from '../../App';
+import { sidebarContext } from '../Template/Template';
 import { NavLink } from "react-router-dom";
 
 const SidebarLink = props => {

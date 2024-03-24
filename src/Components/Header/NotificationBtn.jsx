@@ -6,7 +6,7 @@ import VideoData from "../../Data/VideoData.json";
 
 const NotificationPanel = props => {
     return (
-        <div className={`absolute top-12 right-0 w-[480px] z-10 bg-yt-gray py-2 rounded-lg ${!(props.display) ? 'hidden' : ''}`}>
+        <div className={`absolute top-12 right-0 w-[480px] z-20 bg-yt-gray py-2 rounded-lg ${!(props.display) ? 'hidden' : ''}`}>
             <div className="flex justify-between items-center px-4 py-2 border-b border-yt-white/15">
                 <h3 className="text-yt-white font-Roboto">Notifications</h3>
                 <IoSettingsOutline className="text-yt-white text-lg cursor-pointer" />
@@ -26,7 +26,7 @@ const NotificationList = () => {
     return (
         <div className="h-[560px] overflow-hidden hover:overflow-y-scroll">
             {
-                VideoData.data.map((notification, index) => (
+                VideoData.map((notification, index) => (
                     <Notification
                         key={index}
                         profile={notification.profilepic}

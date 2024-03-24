@@ -14,6 +14,7 @@ export default {
         'yt-white': '#f1f1f1',
         'yt-black': '#0f0f0f',
         'yt-gray': '#212121',
+        'yt-gray2': '#5a5a5a',
       },
     },
   },

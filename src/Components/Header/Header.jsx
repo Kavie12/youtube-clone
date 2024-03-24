@@ -12,8 +12,8 @@ import Filters from './Filters';
 
 function Header() {
     return (
-        <div className='fixed top-0 left-0 right-0 bg-yt-black z-10'>
-            <div className='flex pl-4 pr-8 justify-between items-center gap-x-12 max-[420px]:gap-x-0 max-[420px]:pr-4'>
+        <div className='fixed top-0 left-0 right-0 z-10'>
+            <div className='flex pl-4 pr-8 justify-between items-center gap-x-12 max-[420px]:gap-x-0 max-[420px]:pr-4 bg-yt-black'>
                 <div className='flex items-center gap-x-4'>
                     <Menu />
                     <Logo />
@@ -29,11 +29,9 @@ function Header() {
                     <ProfileBtn />
                 </div>
             </div>
-            <div className='fixed pl-72 pr-4 mt-2 w-full'>
-                <Filters />
-            </div>
+            <Filters />
         </div>
-    )
+    );
 }
 
-export default Header
+export default Header;

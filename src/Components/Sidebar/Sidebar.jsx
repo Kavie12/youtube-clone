@@ -3,15 +3,12 @@ import React, { useContext, useState } from 'react';
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 
-import { sidebarContext } from '../../App';
+import { resizeChangeContext, sidebarContext } from '../Template/Template';
 
 import MainLinks from './MainLinks';
 import PersonalLinks from './PersonalLinks';
 import SubscriptionsLinks from './SubscriptionsLinks';
 import CategoriesLinks from './CategoriesLinks';
-
-
-
 
 
 
@@ -27,8 +24,8 @@ function Sidebar() {
     const [subCount, setSubCount] = useState(0);
 
     return (
-        <div className={`absolute top-0 left-0 h-screen border-yt-black pt-14 pb-4`}>
-            <div className={`overflow-y-hidden hover:overflow-y-scroll ${(!sidebarState) ? 'px-1' : 'px-4'} divide-y divide-[#f1f1f1]/20 h-full`}>
+        <div className={`bg-yt-black z-10 fixed top-0 left-0 h-screen border-yt-black mt-16 pb-20`}>
+            <div className={`sidebar overflow-y-hidden hover:overflow-y-scroll ${(!sidebarState) ? 'px-1' : 'px-4'} divide-y divide-[#f1f1f1]/20 h-full`}>
                 <div className='flex flex-col py-3'>
                     <MainLinks />
                 </div>

@@ -1,21 +1,12 @@
-import { createContext, useState } from "react";
-import Header from "./Components/Header/Header"
-import Sidebar from "./Components/Sidebar/Sidebar"
-import Home from "./Components/Home/Home";
+import HomeVideos from "./Components/HomeVideos/HomeVideos";
+import Template from "./Components/Template/Template";
 
-export const sidebarContext = createContext();
-
-function App() {
-  const [sidebarState, setSidebarState] = useState(1);
+const App = () => {
   return (
-    <div className="min-h-screen bg-yt-black">
-      <sidebarContext.Provider value={[sidebarState, setSidebarState]}>
-        <Header />
-        <Sidebar />
-        <Home />
-      </sidebarContext.Provider>
-    </div>
-  )
+    <Template>
+      <HomeVideos />
+    </Template>
+  );
 }
 
-export default App
+export default App;
