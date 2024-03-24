@@ -24,7 +24,7 @@ const NotificationList = () => {
         return months;
     }
     return (
-        <div className="h-[560px] overflow-hidden hover:overflow-y-scroll">
+        <div className="notification-list h-[560px] overflow-hidden hover:overflow-y-scroll">
             {
                 VideoData.map((notification, index) => (
                     <Notification
