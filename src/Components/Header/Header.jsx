@@ -7,10 +7,9 @@ import VoiceSearch from './VoiceSearch';
 import NotificationBtn from './NotificationBtn';
 import ProfileBtn from './ProfileBtn';
 import MobileSearchBtn from './MobileSearchBtn';
-import Filters from './Filters';
 
 
-function Header() {
+const Header = props => {
     return (
         <div className='fixed top-0 left-0 right-0 z-10'>
             <div className='flex pl-4 pr-8 justify-between items-center gap-x-12 max-[420px]:gap-x-0 max-[420px]:pr-4 bg-yt-black'>
@@ -29,7 +28,7 @@ function Header() {
                     <ProfileBtn />
                 </div>
             </div>
-            <Filters />
+            {props.children}
         </div>
     );
 }

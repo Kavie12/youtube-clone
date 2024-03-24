@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from 'react-router-dom';
 import { AiOutlinePlaySquare } from "react-icons/ai";
 import { HiMiniSignal } from "react-icons/hi2";

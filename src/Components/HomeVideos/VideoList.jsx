@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import VideoData from "../../Data/VideoData.json";
 import VideoTemplate from "./VideoTemplate";
-import { resizeChangeContext, sidebarContext } from "../Template/Template";
+import { resizeChangeContext, sidebarContext } from "../../App";
 
 const VideoList = () => {
     const [sidebarState] = useContext(sidebarContext);
@@ -11,11 +11,13 @@ const VideoList = () => {
             {
                 VideoData.map((video, index) => (
                     <VideoTemplate
-                        key={video.id}
+                        key={index}
+                        vidid={video.id}
                         thumbnail={video.thumbnail}
                         profilepic={video.profilepic}
                         title={video.title}
                         channel={video.channel}
+                        channelusername={video.channelusername}
                         views={video.views}
                         date={video.date}
                         length={video.length}

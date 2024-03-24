@@ -17,12 +17,12 @@ import { useState } from "react";
 const ProfileMenu = props => {
     return (
         <div className={`profile-menu z-20 absolute top-4 right-full bg-yt-gray w-72 h-[680px] overflow-y-hidden hover:overflow-y-scroll rounded-xl divide-y divide-[#f1f1f1]/20 ${!props.display ? 'hidden' : null}`}>
-            <div className="flex gap-x-4 px-3 py-4">
-                <img src={'/Profile/profile-pic.png'} alt="profile_pic" className="w-10 h-10 object-cover rounded-full" />
+            <div className="flex gap-x-3 px-3 py-4">
+                <img src={'/Profile/profile-pic.png'} alt="profile_pic" className="w-11 h-11 object-cover rounded-full" />
                 <div className="flex flex-col gap-y-1">
                     <span className="text-yt-white font-Roboto text-sm">Master Soft</span>
                     <span className="text-yt-white font-Roboto text-sm">@mastersoft</span>
-                    <Link to='/mastersoft' className="text-sky-400 font-Roboto text-sm">View your channel</Link>
+                    <Link to='/channel/mastersoft' className="text-sky-400 font-Roboto text-sm mt-1">View your channel</Link>
                 </div>
             </div>
             <div className="flex flex-col gap-y-2 py-1.5">

@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { sidebarContext } from "../Template/Template";
+import { sidebarContext } from "../../App";
 
 const Menu = () => {
     const [sidebarState, setSidebarState] = useContext(sidebarContext);

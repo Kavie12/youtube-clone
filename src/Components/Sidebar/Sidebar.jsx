@@ -3,12 +3,12 @@ import React, { useContext, useState } from 'react';
 import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowUp } from "react-icons/io";
 
-import { resizeChangeContext, sidebarContext } from '../Template/Template';
-
 import MainLinks from './MainLinks';
 import PersonalLinks from './PersonalLinks';
 import SubscriptionsLinks from './SubscriptionsLinks';
 import CategoriesLinks from './CategoriesLinks';
+
+import { sidebarContext } from '../../App';
 
 
 

@@ -6,7 +6,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Channel from './Components/Channel/Channel.jsx';
+import Channel from './Components/Channel/Channel';
 
 const router = createBrowserRouter([
   {
@@ -14,7 +14,7 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: "/mastersoft",
+    path: "/channel/mastersoft",
     element: <Channel />,
   },
 ]);

@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { sidebarContext } from '../Template/Template';
 import { NavLink } from "react-router-dom";
+import { sidebarContext } from "../../App";
 
 const SidebarLink = props => {
     const [sidebarState] = useContext(sidebarContext);

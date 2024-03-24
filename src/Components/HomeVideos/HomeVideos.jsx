@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import VideoList from "./VideoList";
-import { resizeChangeContext, sidebarContext } from "../Template/Template";
+import { resizeChangeContext, sidebarContext } from "../../App";
 
 const HomeVideos = () => {
     const [sidebarState] = useContext(sidebarContext);
