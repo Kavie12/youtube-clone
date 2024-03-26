@@ -36,7 +36,7 @@ const ChannelSection = () => {
                         <button className="bg-transparent border-none bg-yt-white hover:bg-yt-white/90 text-yt-black py-2 px-4 font-Roboto text-sm rounded-2xl font-medium">Subscribe</button>
                     </div>
                 </div>
-                <div className="flex items-center gap-x-8 mt-4 border-b border-yt-white/20">
+                <div className="flex items-center gap-x-8 mt-4 border-b border-yt-white/20 max-[650px]:w-96 max-[650px]:overflow-x-hidden max-[650px]:hover:overflow-x-scroll max-[450px]:w-80 max-[360px]:w-56">
                     <div className="flex gap-x-6">
                         <ChannelSectionLink to="/channel/mastersoft" text="Home" />
                         <ChannelSectionLink to="/channel/mastersoft/videos" text="Videos" />
