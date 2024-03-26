@@ -1,17 +1,32 @@
 import ChannelLink from './ChannelLink';
-import SubscriptionData from "../../Data/SubscriptionData.json";
-
+import { useEffect, useState } from 'react';
 
 const SubscriptionsLinks = props => {
-    props.setCount(SubscriptionData.length);
+    const [subData, setSubData] = useState([]);
+
+    useEffect(() => {
+        fetch('/Data/SubscriptionData.json')
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
+            .then(data => {
+                setSubData(data);
+                props.setCount(data.length);
+            })
+            .catch(error => console.error('Error fetching data: ', error));
+    }, []);
+
     return (
         <>
             {
                 props.showMore ?
-                    SubscriptionData.map((sub, index) => (
+                    subData.map((sub, index) => (
                         <ChannelLink key={index} profile={sub.profile} to={sub.to} text={sub.text} />
                     )) :
-                    SubscriptionData.slice(0, 7).map((sub, index) => (
+                    subData.slice(0, 7).map((sub, index) => (
                         <ChannelLink key={index} profile={sub.profile} to={sub.to} text={sub.text} />
                     ))
             }

@@ -13,7 +13,7 @@ const App = () => {
       </Header>
       <Sidebar />
       <ContentEnvironment>
-        <HomeVideos colCount={3} />
+        <HomeVideos />
       </ContentEnvironment>
     </AppLayout>
   );

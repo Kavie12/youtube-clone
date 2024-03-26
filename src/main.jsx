@@ -7,6 +7,7 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Channel from './Components/Channel/Channel';
+import VideoPage from './Components/VideoPage/VideoPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
   {
     path: "/channel/mastersoft",
     element: <Channel />,
+  },
+  {
+    path: "/watch",
+    element: <VideoPage />,
   },
 ]);
 

@@ -1,8 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaRegBell } from "react-icons/fa";
 import HoverToolTip from "./HoverToolTip";
 import { IoSettingsOutline } from "react-icons/io5";
-import VideoData from "../../Data/VideoData.json";
 
 const NotificationPanel = props => {
     return (
@@ -17,6 +16,21 @@ const NotificationPanel = props => {
 }
 
 const NotificationList = () => {
+
+    const [videoData, setVideoData] = useState([]);
+
+    useEffect(() => {
+        fetch('/Data/VideoData.json')
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
+            .then(data => setVideoData(data))
+            .catch(error => console.error('Error fetching data: ', error));
+    }, []);
+
     const calcMonths = date => {
         const today = new Date();
         const uploadDate = new Date(date);
@@ -26,7 +40,7 @@ const NotificationList = () => {
     return (
         <div className="notification-list h-[560px] overflow-hidden hover:overflow-y-scroll">
             {
-                VideoData.map((notification, index) => (
+                videoData.map((notification, index) => (
                     <Notification
                         key={index}
                         profile={notification.profilepic}

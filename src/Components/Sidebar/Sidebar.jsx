@@ -24,8 +24,8 @@ function Sidebar() {
     const [subCount, setSubCount] = useState(0);
 
     const handleSubCount = (count) => {
-        // setSubCount(count);
-        console.log(count);
+        setSubCount(count);
+        // console.log(count);
     };
 
     return (
