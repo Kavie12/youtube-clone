@@ -44,12 +44,12 @@ const NotificationList = () => {
 const Notification = props => {
     return (
         <div className="flex gap-x-4 px-4 py-4 cursor-pointer hover:bg-yt-white/10">
-            <img src={'Profile/' + props.profile} alt="profile_img" className="w-12 h-12 object-cover rounded-full" />
+            <img src={'/Profile/' + props.profile} alt="profile_img" className="w-12 h-12 object-cover rounded-full" />
             <div className="w-60">
                 <h4 className="text-yt-white font-Roboto text-sm">{props.channel} Uploaded: {props.title}</h4>
                 <span className="text-yt-white/60 font-Roboto text-xs">{props.time} months ago</span>
             </div>
-            <img src={'Thumbnails/' + props.thumbnail} alt="thumbnail" className="w-24 h-14 object-cover rounded-lg" />
+            <img src={'/Thumbnails/' + props.thumbnail} alt="thumbnail" className="w-24 h-14 object-cover rounded-lg" />
         </div>
     );
 }

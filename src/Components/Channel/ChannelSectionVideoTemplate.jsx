@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const VideoTemplate = props => {
+const ChannelSectionVideoTemplate = props => {
 
     const calcMonths = date => {
         const today = new Date();
@@ -31,17 +31,13 @@ const VideoTemplate = props => {
                 <span className="text-yt-white bg-yt-black/75 py-1 px-1.5 rounded-md absolute right-1 bottom-1 font-Roboto text-xs font-medium">{calcLength(props.length)}</span>
             </Link>
             <div className="flex gap-x-3">
-                <Link to={'/channel/' + props.channelusername}>
-                    <img src={'/Profile/' + props.profilepic} alt="profile_pic" className="w-10 rounded-full" />
-                </Link>
                 <div className="flex flex-col gap-y-0.5">
-                    <Link to={'/video/' + props.vidid} className="text-yt-white font-Roboto font-medium">{props.title}</Link>
-                    <Link to={'/channel/' + props.channelusername} className="text-yt-white/70 hover:text-yt-white font-Roboto text-sm">{props.channel}</Link>
-                    <Link to={'/video/' + props.vidid} className="text-yt-white/70 font-Roboto text-sm">{calcViews(props.views) + ' views • ' + calcMonths(props.date) + ' months ago'}</Link>
+                    <Link to={'/video/' + props.vidid} className="text-yt-white font-Roboto text-sm font-medium mb-1">{props.title}</Link>
+                    <Link to={'/video/' + props.vidid} className="text-yt-white/70 font-Roboto text-xs">{calcViews(props.views) + ' views • ' + calcMonths(props.date) + ' months ago'}</Link>
                 </div>
             </div>
         </div>
     );
 }
 
-export default VideoTemplate;
+export default ChannelSectionVideoTemplate;

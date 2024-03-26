@@ -29,7 +29,7 @@ function Sidebar() {
     };
 
     return (
-        <div className={`bg-yt-black z-10 fixed top-0 left-0 h-screen border-yt-black mt-12 pb-20`}>
+        <div className={`bg-yt-black z-10 fixed top-0 left-0 h-screen border-yt-black mt-12 pb-16`}>
             <div className={`sidebar overflow-y-hidden hover:overflow-y-scroll ${(!sidebarState) ? 'px-1' : 'px-4'} divide-y divide-[#f1f1f1]/20 h-full`}>
                 <div className={`flex-col py-3 ${(!sidebarState) ? 'max-[600px]:hidden' : 'flex'}`}>
                     <MainLinks />

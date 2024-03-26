@@ -1,16 +1,16 @@
 import { useContext } from "react";
 import VideoData from "../../Data/VideoData.json";
-import VideoTemplate from "./VideoTemplate";
 import { ResizeChangeContext, SidebarContext } from "../ContextProvider/ContextProvider";
+import ChannelSectionVideoTemplate from "./ChannelSectionVideoTemplate";
 
-const VideoList = () => {
+const ChannelSectionVideoList = () => {
     const [sidebarState] = useContext(SidebarContext);
     const resizeChange = useContext(ResizeChangeContext);
     return (
-        <div className={`grid gap-y-10 gap-x-6 ${(sidebarState && !resizeChange) ? `grid-cols-3` : 'grid-cols-4 max-[1250px]:grid-cols-3 max-[1050px]:grid-cols-2 max-[750px]:grid-cols-1'}`}>
+        <div className={`grid gap-y-10 gap-x-6 ${(sidebarState && !resizeChange) ? `grid-cols-4` : 'grid-cols-4 max-[1250px]:grid-cols-3 max-[1050px]:grid-cols-2 max-[750px]:grid-cols-1'}`}>
             {
                 VideoData.map((video, index) => (
-                    <VideoTemplate
+                    <ChannelSectionVideoTemplate
                         key={index}
                         vidid={video.id}
                         thumbnail={video.thumbnail}
@@ -28,4 +28,4 @@ const VideoList = () => {
     );
 }
 
-export default VideoList;
+export default ChannelSectionVideoList;
