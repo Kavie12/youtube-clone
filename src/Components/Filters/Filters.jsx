@@ -13,7 +13,7 @@ const FilterBtn = props => {
 const Filters = () => {
     const [sidebarState] = useContext(SidebarContext);
     return (
-        <div className={`bg-yt-black fixed pr-4 py-2 w-full ${sidebarState ? 'pl-[270px] max-[1250px]:pl-[100px]' : 'pl-[100px]'}`}>
+        <div className={`bg-yt-black fixed pr-4 py-2 w-full ${sidebarState ? 'pl-[270px] max-[1250px]:pl-[100px]' : 'pl-[100px] max-[600px]:pl-[40px]'}`}>
             <div className="relative py-1">
                 <div className="home-nav-filters overflow-x-hidden hover:overflow-x-scroll flex gap-x-3">
                     <FilterBtn text="All" active={true} />
