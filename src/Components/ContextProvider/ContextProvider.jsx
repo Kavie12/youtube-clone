@@ -9,6 +9,7 @@ const ContextProvider = ({ children }) => {
     const [resizeChange, setResizeChange] = useState(false);
 
     useEffect(() => {
+        handleResize();
         window.addEventListener("resize", handleResize);
     }, []);
 
