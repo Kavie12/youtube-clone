@@ -1,6 +1,6 @@
 import { IoIosArrowForward } from "react-icons/io";
 import { useContext } from "react";
-import { sidebarContext } from "../../App";
+import { SidebarContext } from "../ContextProvider/ContextProvider";
 
 
 
@@ -11,7 +11,7 @@ const FilterBtn = props => {
 }
 
 const Filters = () => {
-    const [sidebarState] = useContext(sidebarContext);
+    const [sidebarState] = useContext(SidebarContext);
     return (
         <div className={`bg-yt-black fixed pr-4 py-2 w-full ${sidebarState ? 'pl-[270px] max-[1250px]:pl-[100px]' : 'pl-[100px]'}`}>
             <div className="relative py-1">

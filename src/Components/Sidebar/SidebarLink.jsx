@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { NavLink } from "react-router-dom";
-import { sidebarContext } from "../../App";
+import { SidebarContext } from "../ContextProvider/ContextProvider";
 
 const SidebarLink = props => {
-    const [sidebarState] = useContext(sidebarContext);
+    const [sidebarState] = useContext(SidebarContext);
     return (
         <NavLink
             to={props.to}

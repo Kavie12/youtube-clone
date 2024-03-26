@@ -1,11 +1,11 @@
 import { useContext } from "react";
 import VideoData from "../../Data/VideoData.json";
 import VideoTemplate from "./VideoTemplate";
-import { resizeChangeContext, sidebarContext } from "../../App";
+import { ResizeChangeContext, SidebarContext } from "../ContextProvider/ContextProvider";
 
 const VideoList = () => {
-    const [sidebarState] = useContext(sidebarContext);
-    const resizeChange = useContext(resizeChangeContext);
+    const [sidebarState] = useContext(SidebarContext);
+    const resizeChange = useContext(ResizeChangeContext);
     return (
         <div className={`grid gap-y-10 gap-x-6 ${(sidebarState && !resizeChange) ? 'grid-cols-3' : 'grid-cols-4 max-[1250px]:grid-cols-3 max-[1050px]:grid-cols-2 max-[750px]:grid-cols-1'}`}>
             {

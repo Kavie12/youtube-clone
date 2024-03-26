@@ -1,15 +1,14 @@
 import { useContext } from "react";
-import VideoList from "./VideoList";
 import { ResizeChangeContext, SidebarContext } from "../ContextProvider/ContextProvider";
 
-const HomeVideos = () => {
+const ContentEnvironment = ({ children }) => {
     const [sidebarState] = useContext(SidebarContext);
     const resizeChange = useContext(ResizeChangeContext);
     return (
-        <div className="pt-32 pb-12">
-            <VideoList />
+        <div className={`pr-10 ${(sidebarState && !resizeChange) ? 'pl-[270px]' : 'pl-[100px] max-[600px]:pl-[40px]'} z-0 flex justify-center`}>
+            {children}
         </div>
     );
 }
 
-export default HomeVideos;
+export default ContentEnvironment;

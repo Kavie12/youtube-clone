@@ -1,9 +1,16 @@
-import React from 'react'
+import AppLayout from "../AppLayout/AppLayout";
+import Header from "../Header/Header";
+import Sidebar from "../Sidebar/Sidebar";
+import ChannelSection from "./ChannelSection";
 
-function Channel() {
+const Channel = () => {
     return (
-        <div>Channel</div>
-    )
+        <AppLayout>
+            <Header />
+            <Sidebar />
+            <ChannelSection />
+        </AppLayout>
+    );
 }
 
-export default Channel
+export default Channel;
