@@ -1,21 +1,17 @@
-import HomeVideos from "./Components/HomeVideos/HomeVideos";
-import AppLayout from "./Components/AppLayout/AppLayout";
-import Header from "./Components/Header/Header";
-import Filters from "./Components/Filters/Filters";
-import Sidebar from "./Components/Sidebar/Sidebar";
-import ContentEnvironment from "./Components/AppLayout/ContentEnvironment";
+import { Route, Routes } from "react-router-dom";
+import Home from "./Components/Home/Home";
+import Channel from "./Components/Channel/Channel";
+import VideoPage from "./Components/VideoPage/VideoPage";
 
 const App = () => {
   return (
-    <AppLayout>
-      <Header>
-        <Filters />
-      </Header>
-      <Sidebar />
-      <ContentEnvironment>
-        <HomeVideos />
-      </ContentEnvironment>
-    </AppLayout>
+    <>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/channel/mastersoft" element={<Channel />} />
+        <Route path="/watch" element={<VideoPage />} />
+      </Routes>
+    </>
   );
 }
 
