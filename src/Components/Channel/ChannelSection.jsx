@@ -1,5 +1,4 @@
-import { useContext, useState } from "react";
-import { ResizeChangeContext, SidebarContext } from "../ContextProvider/ContextProvider";
+import { useState } from "react";
 import ContentEnvironment from "../AppLayout/ContentEnvironment";
 import { NavLink } from "react-router-dom";
 import { HiMagnifyingGlass } from "react-icons/hi2";
@@ -15,8 +14,6 @@ const ChannelSectionLink = ({ to, text }) => {
 }
 
 const ChannelSection = () => {
-    const [sidebarState] = useContext(SidebarContext);
-    const resizeChange = useContext(ResizeChangeContext);
 
     const [searchOpen, setSearchOpen] = useState(false);
 

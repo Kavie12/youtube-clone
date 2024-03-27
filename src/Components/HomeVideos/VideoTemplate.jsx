@@ -26,7 +26,7 @@ const VideoTemplate = props => {
 
     return (
         <div className='flex flex-col gap-y-2'>
-            <Link to={'/video/' + props.vidid} className="relative">
+            <Link to={'/watch?v=' + props.vidid} className="relative">
                 <img src={'/Thumbnails/' + props.thumbnail} alt="thumbnail" className="w-full rounded-xl" />
                 <span className="text-yt-white bg-yt-black/75 py-1 px-1.5 rounded-md absolute right-1 bottom-1 font-Roboto text-xs font-medium">{calcLength(props.length)}</span>
             </Link>

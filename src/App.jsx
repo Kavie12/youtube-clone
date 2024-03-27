@@ -1,6 +1,5 @@
 import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import Home from "./Components/Home/Home";
 
 const LazyHome = lazy(() => import('./Components/Home/Home'));
 const LazyChannel = lazy(() => import('./Components/Channel/Channel'));
@@ -11,7 +10,7 @@ const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Suspense fallback="Loading..."><LazyHome /></Suspense>} />
-        <Route path="/channel/mastersoft" element={<Suspense fallback="Loading..."><LazyChannel /></Suspense>} />
+        <Route path="/channel/:channel" element={<Suspense fallback="Loading..."><LazyChannel /></Suspense>} />
         <Route path="/watch" element={<Suspense fallback="Loading..."><LazyVideoPage /></Suspense>} />
       </Routes>
     </>

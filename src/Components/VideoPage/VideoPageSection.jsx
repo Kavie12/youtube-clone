@@ -1,27 +1,16 @@
-import { useEffect, useState } from "react";
 import ContentEnvironment from "../AppLayout/ContentEnvironment";
 import { PiThumbsUp } from "react-icons/pi";
 import { PiThumbsDown } from "react-icons/pi";
 import { PiShareFatLight } from "react-icons/pi";
 import { HiDotsHorizontal } from "react-icons/hi";
+import { useSearchParams } from "react-router-dom";
 
 
 
 const VideoPageSection = () => {
 
-    const [videoData, setVideoData] = useState([]);
-
-    useEffect(() => {
-        fetch('Data/VideoData.json')
-            .then(res => {
-                if (!res.ok) {
-                    throw new Error('Network response error');
-                }
-                return res.json();
-            })
-            .then(data => setVideoData(data))
-            .catch(error => console.error("Error fetching data: ", error));
-    });
+    const [v] = useSearchParams();
+    const vidId = v.get('v');
 
     return (
         <ContentEnvironment>
