@@ -1,15 +1,18 @@
+import { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import Home from "./Components/Home/Home";
-import Channel from "./Components/Channel/Channel";
-import VideoPage from "./Components/VideoPage/VideoPage";
+
+const LazyHome = lazy(() => import('./Components/Home/Home'));
+const LazyChannel = lazy(() => import('./Components/Channel/Channel'));
+const LazyVideoPage = lazy(() => import('./Components/VideoPage/VideoPage'));
 
 const App = () => {
   return (
     <>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/channel/mastersoft" element={<Channel />} />
-        <Route path="/watch" element={<VideoPage />} />
+        <Route path="/" element={<Suspense fallback="Loading..."><LazyHome /></Suspense>} />
+        <Route path="/channel/mastersoft" element={<Suspense fallback="Loading..."><LazyChannel /></Suspense>} />
+        <Route path="/watch" element={<Suspense fallback="Loading..."><LazyVideoPage /></Suspense>} />
       </Routes>
     </>
   );
