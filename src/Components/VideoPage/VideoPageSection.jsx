@@ -3,7 +3,7 @@ import { PiThumbsUp } from "react-icons/pi";
 import { PiThumbsDown } from "react-icons/pi";
 import { PiShareFatLight } from "react-icons/pi";
 import { HiDotsHorizontal } from "react-icons/hi";
-import { useSearchParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 
 
 
@@ -18,7 +18,7 @@ const VideoPageSection = () => {
                 <div>
                     <div>
                         <video width="700" controls>
-                            <source src={"/Videos/video1.mp4"} type="video/mp4" />
+                            <source src="/Videos/video1.mp4" type="video/mp4" />
                         </video>
                     </div>
                     <h1 className="text-yt-white text-xl font-Roboto font-bold mt-4">How to create a Youtube clone with React</h1>
@@ -26,9 +26,13 @@ const VideoPageSection = () => {
                         <div className="flex gap-x-6 items-center">
                             {/* Profile */}
                             <div className="flex gap-x-4 items-center">
-                                <img src={"/Profile/profile-pic.png"} alt="profile" className="w-12 h-12 object-cover rounded-full" />
+                                <Link to="/channel/mastersoft">
+                                    <img src={"/Profile/profile-pic.png"} alt="profile" className="w-12 h-12 object-cover rounded-full" />
+                                </Link>
                                 <div className="flex flex-col gap-y-0.5">
-                                    <h2 className="text-yt-white font-Roboto font-medium">Master Soft</h2>
+                                    <Link to="/channel/mastersoft">
+                                        <h2 className="text-yt-white font-Roboto font-medium">Master Soft</h2>
+                                    </Link>
                                     <span className="text-yt-white/75 font-Roboto text-xs">78K subscribers</span>
                                 </div>
                             </div>
