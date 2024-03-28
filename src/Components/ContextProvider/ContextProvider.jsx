@@ -1,31 +1,38 @@
 import { createContext, useEffect, useState } from "react";
 
 export const SidebarContext = createContext();
-export const ResizeChangeContext = createContext();
 
-const ContextProvider = ({ children }) => {
+const ContextProvider = ({ children, NoSidebarEffect }) => {
     // console.log(children);
     const [sidebarState, setSidebarState] = useState(true);
-    const [resizeChange, setResizeChange] = useState(false);
-
-    useEffect(() => {
-        handleResize();
-        window.addEventListener("resize", handleResize);
-    }, []);
+    const [sidebarResizeChange, setSidebarResizeChange] = useState(true);
 
     const handleResize = () => {
         const matchMediaQuery = window.matchMedia("(max-width: 1250px)").matches;
         setSidebarState(!matchMediaQuery);
-        setResizeChange(matchMediaQuery);
     };
+
+    useEffect(() => {
+        handleResize();
+        if (NoSidebarEffect == true) {
+            setSidebarState(false);
+        }
+    }, []);
+
+    useEffect(() => {
+        window.addEventListener("resize", handleResize);
+        return () => {
+            if (!sidebarResizeChange) {
+                window.removeEventListener("resize", handleResize);
+            }
+        }
+    }, [sidebarResizeChange]);
 
     return (
         <div className="min-h-screen bg-yt-black">
-            <ResizeChangeContext.Provider value={resizeChange}>
-                <SidebarContext.Provider value={[sidebarState, setSidebarState]}>
-                    {children}
-                </SidebarContext.Provider>
-            </ResizeChangeContext.Provider>
+            <SidebarContext.Provider value={[sidebarState, setSidebarState, setSidebarResizeChange]}>
+                {children}
+            </SidebarContext.Provider>
         </div>
     );
 };

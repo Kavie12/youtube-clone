@@ -1,10 +1,9 @@
 import { useContext, useEffect, useState } from "react";
-import { ResizeChangeContext, SidebarContext } from "../ContextProvider/ContextProvider";
+import { SidebarContext } from "../ContextProvider/ContextProvider";
 import ChannelSectionVideoTemplate from "./ChannelSectionVideoTemplate";
 
 const ChannelSectionVideoList = () => {
     const [sidebarState] = useContext(SidebarContext);
-    const resizeChange = useContext(ResizeChangeContext);
 
     const [videoData, setVideoData] = useState([]);
 
@@ -23,7 +22,7 @@ const ChannelSectionVideoList = () => {
 
 
     return (
-        <div className={`grid gap-y-10 gap-x-6 ${(sidebarState && !resizeChange) ? `grid-cols-4` : 'grid-cols-4 max-[1250px]:grid-cols-3 max-[1050px]:grid-cols-2 max-[750px]:grid-cols-1'}`}>
+        <div className={`grid gap-y-10 gap-x-6 grid-cols-4 max-[1250px]:grid-cols-3 max-[1050px]:grid-cols-2 max-[750px]:grid-cols-1`}>
             {
                 videoData.map((video, index) => (
                     <ChannelSectionVideoTemplate

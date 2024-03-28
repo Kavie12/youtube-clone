@@ -1,8 +1,8 @@
 import ContextProvider from "../ContextProvider/ContextProvider";
 
-const AppLayout = ({ children }) => {
+const AppLayout = ({ children, NoSidebarEffect }) => {
     return (
-        <ContextProvider>
+        <ContextProvider NoSidebarEffect={NoSidebarEffect}>
             {children}
         </ContextProvider>
     );

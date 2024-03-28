@@ -1,4 +1,5 @@
 import AppLayout from "../AppLayout/AppLayout";
+import ContentEnvironment from "../AppLayout/ContentEnvironment";
 import Header from "../Header/Header";
 import Sidebar from "../Sidebar/Sidebar";
 import ChannelSection from "./ChannelSection";
@@ -8,7 +9,9 @@ const Channel = () => {
         <AppLayout>
             <Header />
             <Sidebar />
-            <ChannelSection />
+            <ContentEnvironment>
+                <ChannelSection />
+            </ContentEnvironment>
         </AppLayout>
     );
 }

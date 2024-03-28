@@ -1,9 +1,7 @@
-import { useContext, useState, useEffect } from "react";
-import VideoTemplate from "./VideoTemplate";
-import { SidebarContext } from "../ContextProvider/ContextProvider";
+import { useEffect, useState } from "react";
+import VideoPageVideoTemplate from "./VideoPageVideoTemplate";
 
-const VideoList = () => {
-    const [sidebarState] = useContext(SidebarContext);
+const VideoPageVideoList = () => {
 
     const [videoData, setVideoData] = useState([]);
 
@@ -19,11 +17,13 @@ const VideoList = () => {
             .catch(error => console.error('Error fetching data: ', error));
     }, []);
 
+
+
     return (
-        <div className={`grid gap-y-10 gap-x-6 ${sidebarState ? `grid-cols-3` : 'grid-cols-4 '} max-[1250px]:grid-cols-3 max-[1050px]:grid-cols-2 max-[750px]:grid-cols-1`}>
+        <div className={`grid gap-y-4 gap-x-6 grid-cols-1`}>
             {
                 videoData.map((video, index) => (
-                    <VideoTemplate
+                    <VideoPageVideoTemplate
                         key={index}
                         vidid={video.id}
                         thumbnail={video.thumbnail}
@@ -41,4 +41,4 @@ const VideoList = () => {
     );
 }
 
-export default VideoList;
+export default VideoPageVideoList;
