@@ -20,7 +20,9 @@ const ContextProvider = ({ children, NoSidebarEffect }) => {
     }, []);
 
     useEffect(() => {
-        window.addEventListener("resize", handleResize);
+        if (!NoSidebarEffect) {
+            window.addEventListener("resize", handleResize);
+        }
         return () => {
             if (!sidebarResizeChange) {
                 window.removeEventListener("resize", handleResize);

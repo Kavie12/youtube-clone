@@ -6,18 +6,111 @@ import { Link, useSearchParams } from "react-router-dom";
 import VideoPageVideoList from "./VideoPageVideoList";
 import { useState, useEffect } from "react";
 import { MdSort } from "react-icons/md";
+import { IoCaretDownSharp } from "react-icons/io5";
+import { IoCaretUpSharp } from "react-icons/io5";
 
 
+const CommentTemplate = props => {
+    const calcMonths = date => {
+        const today = new Date();
+        const uploadDate = new Date(date);
+        const months = (today.getFullYear() - uploadDate.getFullYear()) * 12;
+        return (months + " months ago");
+    }
+    return (
+        <div className="flex gap-x-2">
+            <div>
+                <img src={"/Profile/" + props.profilepic} alt="profilepic" className="w-12 h-12 object-cover rounded-full" />
+            </div>
+            <div className="flex flex-col items-start">
+                <div className="flex items-center px-1.5">
+                    <span className="text-yt-white font-Roboto text-sm font-medium">{props.channel}</span>
+                    <span className="text-yt-white/60 font-Roboto text-xs ml-1.5">{calcMonths(props.date)}</span>
+                </div>
+                <p className="text-yt-white font-Roboto text-sm mt-1 px-1.5">{props.comment}</p>
+                <div className="mt-1 flex items-center">
+                    <div className="flex items-center">
+                        <div className="p-1.5 hover:bg-yt-white/15 rounded-full cursor-pointer">
+                            <PiThumbsUp className="text-yt-white text-xl" />
+                        </div>
+                        <span className="text-yt-white/60 font-Roboto text-xs">{props.likes}</span>
+                    </div>
+                    <div className="ml-2.5 p-1.5 hover:bg-yt-white/15 rounded-full cursor-pointer">
+                        <PiThumbsDown className="text-yt-white text-xl" />
+                    </div>
+                    <div className="ml-2 px-3 py-2 cursor-pointer hover:bg-yt-white/15 rounded-2xl flex items-center">
+                        <span className="text-yt-white font-Roboto font-medium text-xs">Reply</span>
+                    </div>
+                </div>
+                {
+                    (props.replycount > 0) ?
+                        <div onClick={() => props.setReplyView(!props.replyView)} className="cursor-pointer px-4 py-2 rounded-3xl hover:bg-blue-500/25 flex items-center">
+                            {
+                                !props.replyView ?
+                                    <IoCaretDownSharp className="text-blue-500 text-sm" />
+                                    :
+                                    <IoCaretUpSharp className="text-blue-500 text-sm" />
+                            }
+                            <span className="font-Roboto text-sm text-blue-500 font-medium ml-2">{props.replycount + " replies"}</span>
+                        </div>
+                        :
+                        null
+                }
+            </div>
+
+        </div>
+    );
+}
+
+const CommentReplyTemplate = props => {
+    const calcMonths = date => {
+        const today = new Date();
+        const uploadDate = new Date(date);
+        const months = (today.getFullYear() - uploadDate.getFullYear()) * 12;
+        return (months + " months ago");
+    }
+    return (
+        <div className="flex gap-x-2">
+            <div>
+                <img src={"/Profile/" + props.profilepic} alt="profilepic" className="w-8 h-8 object-cover rounded-full" />
+            </div>
+            <div className="flex flex-col items-start">
+                <div className="flex items-center px-1.5">
+                    <span className="text-yt-white font-Roboto text-sm font-medium">{props.channel}</span>
+                    <span className="text-yt-white/60 font-Roboto text-xs ml-1.5">{calcMonths(props.date)}</span>
+                </div>
+                <p className="text-yt-white font-Roboto text-sm mt-1 px-1.5">{props.comment}</p>
+                <div className="mt-1 flex items-center">
+                    <div className="flex items-center">
+                        <div className="p-1.5 hover:bg-yt-white/15 rounded-full cursor-pointer">
+                            <PiThumbsUp className="text-yt-white text-xl" />
+                        </div>
+                        <span className="text-yt-white/60 font-Roboto text-xs">{props.likes}</span>
+                    </div>
+                    <div className="ml-2.5 p-1.5 hover:bg-yt-white/15 rounded-full cursor-pointer">
+                        <PiThumbsDown className="text-yt-white text-xl" />
+                    </div>
+                    <div className="ml-2 px-3 py-2 cursor-pointer hover:bg-yt-white/15 rounded-2xl flex items-center">
+                        <span className="text-yt-white font-Roboto font-medium text-xs">Reply</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    );
+}
 
 const VideoPageSection = () => {
 
+    const [videoData, setVideoData] = useState([]);
+    const [comments, setComments] = useState([]);
     const [showDesc, setShowDesc] = useState(false);
     const [showAddComment, setShowAddComment] = useState(false);
+    const [replyView, setReplyView] = useState(false);
 
     const [v] = useSearchParams();
     const vidId = v.get('v');
 
-    const [videoData, setVideoData] = useState([]);
 
     useEffect(() => {
         fetch('/Data/VideoData.json')
@@ -28,6 +121,16 @@ const VideoPageSection = () => {
                 return res.json();
             })
             .then(data => setVideoData(data[vidId]))
+            .catch(error => console.error('Error fetching data: ', error));
+
+        fetch('/Data/CommentData.json')
+            .then(res => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return res.json();
+            })
+            .then(data => setComments(data))
             .catch(error => console.error('Error fetching data: ', error));
     }, []);
 
@@ -63,10 +166,10 @@ const VideoPageSection = () => {
     }
 
     return (
-        <div className="mt-20 flex justify-center gap-x-8">
+        <div className="mt-20 mx-6 flex justify-center gap-x-8">
 
             {/* Left Side */}
-            <div className="w-[800px]">
+            <div className="w-[800px] max-[1100px]:w-auto">
                 <div>
                     <video controls className="w-full rounded-lg">
                         <source src="/Videos/video1.mp4" type="video/mp4" />
@@ -118,9 +221,15 @@ const VideoPageSection = () => {
                     </div>
                 </div>
                 {/* Description Box */}
-                <div className={`bg-yt-white/10 mt-4 rounded-xl py-3 px-3 w-full ${!showDesc ? 'cursor-pointer' : null}`} onClick={() => setShowDesc(true)}>
+                <div className={`relative bg-zinc-800 mt-4 rounded-xl py-3 px-3 w-full ${!showDesc ? 'cursor-pointer' : null}`} onClick={() => !showDesc ? setShowDesc(true) : null}>
                     <h4 className="text-yt-white font-Roboto text-sm font-medium">{calcViews(videoData.views) + "views " + calcMonths(videoData.date) + " ago"}</h4>
-                    <p className={`text-yt-white font-Roboto text-sm ${!showDesc ? 'h-12 overflow-y-hidden' : null}`}>{videoData.desc}</p>
+                    <p className={`text-yt-white font-Roboto text-sm ${!showDesc ? 'h-12 overflow-y-hidden' : 'mb-4'}`}>{videoData.desc}</p>
+                    {
+                        !showDesc ?
+                            <span className="text-yt-white font-Roboto text-sm absolute bottom-1.5 right-2 px-2 bg-zinc-800 font-medium">...more</span>
+                            :
+                            <span onClick={() => setShowDesc(false)} className="text-yt-white font-Roboto text-sm bg-zinc-800 font-medium cursor-pointer">Show less</span>
+                    }
                 </div>
                 {/* Comment Section */}
                 <div className="mt-6">
@@ -131,23 +240,63 @@ const VideoPageSection = () => {
                             <span className="text-yt-white font-Roboto text-sm font-medium">Sort by</span>
                         </div>
                     </div>
+                    {/* Add Comment */}
                     <div className="flex gap-x-4 mt-6">
                         <div>
                             <img src={"/Profile/" + videoData.profilepic} alt="profile" className="w-12 h-12 object-cover rounded-full" />
                         </div>
                         <div className="w-full">
-                            <input type="text" placeholder="Add a comment..." value={!showAddComment ? '' : null} onClick={() => setShowAddComment(true)} className={`w-full font-Roboto text-sm  bg-transparent pb-1 focus:outline-none ${showAddComment ? 'text-yt-white border-yt-white border-b-2' : 'text-yt-white/25 border-yt-white/25 border-b'}`} />
+                            <input type="text" placeholder="Add a comment..." onClick={() => setShowAddComment(true)} className={`w-full font-Roboto text-sm  bg-transparent pb-1 focus:outline-none ${showAddComment ? 'text-yt-white border-yt-white border-b-2' : 'text-yt-white/25 border-yt-white/25 border-b'}`} />
                             <div className={`${showAddComment ? 'flex' : 'hidden'} items-center justify-end gap-x-2 mt-2`}>
                                 <button onClick={() => setShowAddComment(false)} className="text-yt-white text-sm font-medium rounded-3xl py-2 px-4 hover:bg-yt-white/25">Cancel</button>
                                 <button className="text-yt-black bg-blue-400 font-medium text-sm rounded-3xl py-2 px-4">Comment</button>
                             </div>
                         </div>
                     </div>
+                    {/* Other comments */}
+                    <div className="mt-6 flex flex-col gap-y-6">
+                        {
+                            comments.map((comment, index) => (
+                                <div>
+                                    <CommentTemplate
+                                        key={comment.id}
+                                        channel={comment.channel}
+                                        profilepic={comment.profilepic}
+                                        comment={comment.comment}
+                                        date={comment.date}
+                                        likes={comment.likes}
+                                        replycount={comment.replycount}
+                                        setReplyView={setReplyView}
+                                        replyView={replyView}
+                                    />
+                                    {
+                                        replyView ?
+                                            <div className="ml-16 mt-1 flex flex-col gap-y-2">
+                                                {
+                                                    comments[index].replies.map(reply => (
+                                                        <CommentReplyTemplate
+                                                            key={reply.replyid}
+                                                            channel={reply.channel}
+                                                            profilepic={reply.profilepic}
+                                                            comment={reply.comment}
+                                                            date={reply.date}
+                                                            likes={reply.likes}
+                                                        />
+                                                    ))
+                                                }
+                                            </div>
+                                            :
+                                            null
+                                    }
+                                </div>
+                            ))
+                        }
+                    </div>
                 </div>
             </div>
 
             {/* Right Side */}
-            <div>
+            <div className="max-[1100px]:hidden">
                 <div>
                     <VideoPageVideoList />
                 </div>

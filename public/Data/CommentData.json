@@ -1,0 +1,58 @@
+[
+    {
+        "id": 0,
+        "channel": "Master Soft",
+        "profilepic": "profile-pic.png",
+        "comment": "Good video!",
+        "date": "2024-02-12",
+        "likes": 170,
+        "replycount": 2,
+        "replies": [
+            {
+                "replyid": 0,
+                "channel": "Peter",
+                "profilepic": "profile-pic.png",
+                "comment": "Yes",
+                "date": "2024-02-13",
+                "likes": 1
+            },
+            {
+                "replyid": 1,
+                "channel": "Donald",
+                "profilepic": "profile-pic.png",
+                "comment": "Obviously",
+                "date": "2024-02-13",
+                "likes": 2
+            }
+        ]
+    },
+    {
+        "id": 1,
+        "channel": "Master Soft",
+        "profilepic": "profile-pic.png",
+        "comment": "Good video!",
+        "date": "2024-02-12",
+        "likes": 170,
+        "replycount": 1,
+        "replies": [
+            {
+                "replyid": 0,
+                "channel": "Peter",
+                "profilepic": "profile-pic.png",
+                "comment": "Yes",
+                "date": "2024-02-13",
+                "likes": 1
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "channel": "Master Soft",
+        "profilepic": "profile-pic.png",
+        "comment": "Good video!",
+        "date": "2024-02-12",
+        "likes": 170,
+        "replycount": 0,
+        "replies": []
+    }
+]
