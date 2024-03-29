@@ -166,17 +166,16 @@ const VideoPageSection = () => {
     }
 
     return (
-        <div className="mt-20 mx-6 flex justify-center gap-x-8">
+        <div className="mt-20 grid grid-cols-3 grid-rows-2 gap-x-6 gap-y-12 w-[1300px] max-[1050px]:grid-cols-1 max-[1050px]:grid-rows-1 items-start">
 
-            {/* Left Side */}
-            <div className="w-[800px] max-[1100px]:w-auto">
+            <div className="min-[1050px]:col-span-2">
                 <div>
                     <video controls className="w-full rounded-lg">
                         <source src="/Videos/video1.mp4" type="video/mp4" />
                     </video>
                 </div>
                 <h1 className="text-yt-white text-xl font-Roboto font-bold mt-4">{videoData.title}</h1>
-                <div className="flex mt-4 items-center justify-between">
+                <div className="flex mt-4 items-center justify-between max-[640px]:flex-col max-[640px]:items-start max-[640px]:gap-y-2">
                     <div className="flex gap-x-6 items-center">
                         {/* Profile */}
                         <div className="flex gap-x-4 items-center">
@@ -231,77 +230,73 @@ const VideoPageSection = () => {
                             <span onClick={() => setShowDesc(false)} className="text-yt-white font-Roboto text-sm bg-zinc-800 font-medium cursor-pointer">Show less</span>
                     }
                 </div>
-                {/* Comment Section */}
-                <div className="mt-6">
-                    <div className="flex gap-x-8">
-                        <span className="text-yt-white font-Roboto text-xl font-bold">23 Comments</span>
-                        <div className="flex items-center gap-x-2 cursor-pointer">
-                            <MdSort className="text-yt-white text-2xl" />
-                            <span className="text-yt-white font-Roboto text-sm font-medium">Sort by</span>
+            </div>
+            {/* Video List in Right side */}
+            <div className="row-span-2 col-span-1 max-[1050px]:row-span-1 max-[1050px]:col-span-1">
+                <VideoPageVideoList />
+            </div>
+            {/* Comment Section */}
+            <div className="col-span-2 max-[1050px]:col-span-1">
+                <div className="flex gap-x-8">
+                    <span className="text-yt-white font-Roboto text-xl font-bold">23 Comments</span>
+                    <div className="flex items-center gap-x-2 cursor-pointer">
+                        <MdSort className="text-yt-white text-2xl" />
+                        <span className="text-yt-white font-Roboto text-sm font-medium">Sort by</span>
+                    </div>
+                </div>
+                {/* Add Comment */}
+                <div className="flex gap-x-4 mt-6">
+                    <div>
+                        <img src={"/Profile/" + videoData.profilepic} alt="profile" className="w-12 h-12 object-cover rounded-full" />
+                    </div>
+                    <div className="w-full">
+                        <input type="text" placeholder="Add a comment..." onClick={() => setShowAddComment(true)} className={`w-full font-Roboto text-sm  bg-transparent pb-1 focus:outline-none ${showAddComment ? 'text-yt-white border-yt-white border-b-2' : 'text-yt-white/25 border-yt-white/25 border-b'}`} />
+                        <div className={`${showAddComment ? 'flex' : 'hidden'} items-center justify-end gap-x-2 mt-2`}>
+                            <button onClick={() => setShowAddComment(false)} className="text-yt-white text-sm font-medium rounded-3xl py-2 px-4 hover:bg-yt-white/25">Cancel</button>
+                            <button className="text-yt-black bg-blue-400 font-medium text-sm rounded-3xl py-2 px-4">Comment</button>
                         </div>
                     </div>
-                    {/* Add Comment */}
-                    <div className="flex gap-x-4 mt-6">
-                        <div>
-                            <img src={"/Profile/" + videoData.profilepic} alt="profile" className="w-12 h-12 object-cover rounded-full" />
-                        </div>
-                        <div className="w-full">
-                            <input type="text" placeholder="Add a comment..." onClick={() => setShowAddComment(true)} className={`w-full font-Roboto text-sm  bg-transparent pb-1 focus:outline-none ${showAddComment ? 'text-yt-white border-yt-white border-b-2' : 'text-yt-white/25 border-yt-white/25 border-b'}`} />
-                            <div className={`${showAddComment ? 'flex' : 'hidden'} items-center justify-end gap-x-2 mt-2`}>
-                                <button onClick={() => setShowAddComment(false)} className="text-yt-white text-sm font-medium rounded-3xl py-2 px-4 hover:bg-yt-white/25">Cancel</button>
-                                <button className="text-yt-black bg-blue-400 font-medium text-sm rounded-3xl py-2 px-4">Comment</button>
+                </div>
+                {/* Other comments */}
+                <div className="mt-6 flex flex-col gap-y-6">
+                    {
+                        comments.map((comment, index) => (
+                            <div>
+                                <CommentTemplate
+                                    key={comment.id}
+                                    channel={comment.channel}
+                                    profilepic={comment.profilepic}
+                                    comment={comment.comment}
+                                    date={comment.date}
+                                    likes={comment.likes}
+                                    replycount={comment.replycount}
+                                    setReplyView={setReplyView}
+                                    replyView={replyView}
+                                />
+                                {
+                                    replyView ?
+                                        <div className="ml-16 mt-1 flex flex-col gap-y-2">
+                                            {
+                                                comments[index].replies.map(reply => (
+                                                    <CommentReplyTemplate
+                                                        key={reply.replyid}
+                                                        channel={reply.channel}
+                                                        profilepic={reply.profilepic}
+                                                        comment={reply.comment}
+                                                        date={reply.date}
+                                                        likes={reply.likes}
+                                                    />
+                                                ))
+                                            }
+                                        </div>
+                                        :
+                                        null
+                                }
                             </div>
-                        </div>
-                    </div>
-                    {/* Other comments */}
-                    <div className="mt-6 flex flex-col gap-y-6">
-                        {
-                            comments.map((comment, index) => (
-                                <div>
-                                    <CommentTemplate
-                                        key={comment.id}
-                                        channel={comment.channel}
-                                        profilepic={comment.profilepic}
-                                        comment={comment.comment}
-                                        date={comment.date}
-                                        likes={comment.likes}
-                                        replycount={comment.replycount}
-                                        setReplyView={setReplyView}
-                                        replyView={replyView}
-                                    />
-                                    {
-                                        replyView ?
-                                            <div className="ml-16 mt-1 flex flex-col gap-y-2">
-                                                {
-                                                    comments[index].replies.map(reply => (
-                                                        <CommentReplyTemplate
-                                                            key={reply.replyid}
-                                                            channel={reply.channel}
-                                                            profilepic={reply.profilepic}
-                                                            comment={reply.comment}
-                                                            date={reply.date}
-                                                            likes={reply.likes}
-                                                        />
-                                                    ))
-                                                }
-                                            </div>
-                                            :
-                                            null
-                                    }
-                                </div>
-                            ))
-                        }
-                    </div>
+                        ))
+                    }
                 </div>
             </div>
-
-            {/* Right Side */}
-            <div className="max-[1100px]:hidden">
-                <div>
-                    <VideoPageVideoList />
-                </div>
-            </div>
-
         </div>
     );
 }

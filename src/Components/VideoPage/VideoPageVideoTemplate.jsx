@@ -27,7 +27,7 @@ const VideoPageVideoTemplate = props => {
     return (
         <div className='flex gap-x-2.5'>
             <Link to={'/watch?v=' + props.vidid} className="relative">
-                <img src={'/Thumbnails/' + props.thumbnail} alt="thumbnail" className="rounded-xl max-w-44" />
+                <img src={'/Thumbnails/' + props.thumbnail} alt="thumbnail" className="rounded-xl max-w-40" />
                 <span className="text-yt-white bg-yt-black/75 py-1 px-1.5 rounded-md absolute right-1 bottom-1 font-Roboto text-xs font-medium">{calcLength(props.length)}</span>
             </Link>
             <div className="flex gap-x-3 max-w-48">
