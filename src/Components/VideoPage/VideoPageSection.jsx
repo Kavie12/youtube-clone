@@ -191,7 +191,7 @@ const VideoPageSection = () => {
     }
 
     return (
-        <div className="my-20 grid gap-x-6 gap-y-8 grid-cols-3 grid-rows-2 max-[1050px]:grid-cols-1 max-[1050px]:grid-rows-3 w-[1300px] items-start">
+        <div className="my-20 grid gap-x-6 gap-y-8 grid-cols-3 grid-flow-row max-[1050px]:grid-cols-1 w-[1300px] items-start">
 
             <div className="col-span-2 max-[1050px]:col-span-1">
                 <div>
@@ -260,11 +260,14 @@ const VideoPageSection = () => {
 
 
             {/* Video List in Right side */}
-            <div className="row-span-2 max-[1050px]:row-span-1">
+            <div className="row-span-3 max-[1050px]:row-span-1">
                 <div className="relative pb-6">
                     <FiltersList />
                 </div>
                 <VideoPageVideoList />
+                <div className="pt-4 hidden max-[1050px]:block">
+                    <button className="text-sky-500 text-sm font-Roboto font-medium border border-yt-white/25 w-full py-2 rounded-3xl hover:border-yt-white/0 hover:bg-sky-500/25">Show more</button>
+                </div>
             </div>
 
 

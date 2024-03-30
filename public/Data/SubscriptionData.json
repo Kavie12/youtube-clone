@@ -1,67 +1,67 @@
 [
     {
         "id": 0,
-        "channelusername": "jamesgouse",
+        "to": "/mastersoft",
         "channel": "James Gouse",
         "profile": "profile1.jpg"
     },
     {
         "id": 1,
-        "channelusername": "alan123",
+        "to": "/mastersoft",
         "channel": "Alan Cooper",
         "profile": "profile2.jpg"
     },
     {
         "id": 2,
-        "channelusername": "marcuslevin",
+        "to": "/mastersoft",
         "channel": "Masrcus Levin",
         "profile": "profile3.jpg"
     },
     {
         "id": 3,
-        "channelusername": "alexis_official",
+        "to": "/mastersoft",
         "channel": "Alexis Sears",
         "profile": "profile4.jpg"
     },
     {
         "id": 4,
-        "channelusername": "jessica",
+        "to": "/mastersoft",
         "channel": "Jesica Lambert",
         "profile": "profile5.jpg"
     },
     {
         "id": 5,
-        "channelusername": "annawhite",
+        "to": "/mastersoft",
         "channel": "Anna White",
         "profile": "profile6.jpg"
     },
     {
         "id": 6,
-        "channelusername": "skylardias",
+        "to": "/mastersoft",
         "channel": "Skylar Dias",
         "profile": "profile7.jpg"
     },
     {
-        "id": 7,
-        "channelusername": "jamesgouse",
+        "id": 0,
+        "to": "/mastersoft",
         "channel": "James Gouse",
         "profile": "profile1.jpg"
     },
     {
-        "id": 8,
-        "channelusername": "alan123",
+        "id": 1,
+        "to": "/mastersoft",
         "channel": "Alan Cooper",
         "profile": "profile2.jpg"
     },
     {
-        "id": 9,
-        "channelusername": "marcuslevin",
+        "id": 2,
+        "to": "/mastersoft",
         "channel": "Masrcus Levin",
         "profile": "profile3.jpg"
     },
     {
-        "id": 10,
-        "channelusername": "alexis_official",
+        "id": 3,
+        "to": "/mastersoft",
         "channel": "Alexis Sears",
         "profile": "profile4.jpg"
     }
