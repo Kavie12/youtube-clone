@@ -191,7 +191,7 @@ const VideoPageSection = () => {
     }
 
     return (
-        <div className="mt-20 grid gap-x-6 gap-y-8 grid-cols-3 max-[1050px]:grid-cols-1 w-[1300px] items-start">
+        <div className="my-20 grid gap-x-6 gap-y-8 grid-cols-3 max-[1050px]:grid-cols-1 w-[1300px] items-start">
 
             <div className="col-span-2 max-[1050px]:col-span-1">
                 <div>
