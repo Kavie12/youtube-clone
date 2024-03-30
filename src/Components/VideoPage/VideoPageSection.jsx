@@ -8,9 +8,12 @@ import { useState, useEffect } from "react";
 import { MdSort } from "react-icons/md";
 import { IoCaretDownSharp } from "react-icons/io5";
 import { IoCaretUpSharp } from "react-icons/io5";
+import FiltersList from "../Filters/FiltersList";
 
 
 const CommentTemplate = props => {
+    const [showReply, setShowReply] = useState(false);
+
     const calcMonths = date => {
         const today = new Date();
         const uploadDate = new Date(date);
@@ -18,46 +21,66 @@ const CommentTemplate = props => {
         return (months + " months ago");
     }
     return (
-        <div className="flex gap-x-2">
-            <div>
-                <img src={"/Profile/" + props.profilepic} alt="profilepic" className="w-12 h-12 object-cover rounded-full" />
-            </div>
-            <div className="flex flex-col items-start">
-                <div className="flex items-center px-1.5">
-                    <span className="text-yt-white font-Roboto text-sm font-medium">{props.channel}</span>
-                    <span className="text-yt-white/60 font-Roboto text-xs ml-1.5">{calcMonths(props.date)}</span>
+        <div>
+            <div className="flex gap-x-2">
+                <div>
+                    <img src={"/Profile/" + props.profilepic} alt="profilepic" className="w-12 h-12 object-cover rounded-full" />
                 </div>
-                <p className="text-yt-white font-Roboto text-sm mt-1 px-1.5">{props.comment}</p>
-                <div className="mt-1 flex items-center">
-                    <div className="flex items-center">
-                        <div className="p-1.5 hover:bg-yt-white/15 rounded-full cursor-pointer">
-                            <PiThumbsUp className="text-yt-white text-xl" />
+                <div className="flex flex-col items-start w-full">
+                    <div className="flex items-center px-1.5">
+                        <span className="text-yt-white font-Roboto text-sm font-medium">{props.channel}</span>
+                        <span className="text-yt-white/60 font-Roboto text-xs ml-1.5">{calcMonths(props.date)}</span>
+                    </div>
+                    <p className="text-yt-white font-Roboto text-sm mt-1 px-1.5">{props.comment}</p>
+                    <div className="mt-1 flex items-center">
+                        <div className="flex items-center">
+                            <div className="p-1.5 hover:bg-yt-white/15 rounded-full cursor-pointer">
+                                <PiThumbsUp className="text-yt-white text-xl" />
+                            </div>
+                            <span className="text-yt-white/60 font-Roboto text-xs">{props.likes}</span>
                         </div>
-                        <span className="text-yt-white/60 font-Roboto text-xs">{props.likes}</span>
+                        <div className="ml-2.5 p-1.5 hover:bg-yt-white/15 rounded-full cursor-pointer">
+                            <PiThumbsDown className="text-yt-white text-xl" />
+                        </div>
+                        <div className="ml-2 px-3 py-2 cursor-pointer hover:bg-yt-white/15 rounded-2xl flex items-center">
+                            <span className="text-yt-white font-Roboto font-medium text-xs">Reply</span>
+                        </div>
                     </div>
-                    <div className="ml-2.5 p-1.5 hover:bg-yt-white/15 rounded-full cursor-pointer">
-                        <PiThumbsDown className="text-yt-white text-xl" />
-                    </div>
-                    <div className="ml-2 px-3 py-2 cursor-pointer hover:bg-yt-white/15 rounded-2xl flex items-center">
-                        <span className="text-yt-white font-Roboto font-medium text-xs">Reply</span>
-                    </div>
+                    {
+                        (props.replycount > 0) ?
+                            <div onClick={() => setShowReply(!showReply)} className="cursor-pointer px-4 py-2 rounded-3xl hover:bg-blue-500/25 flex items-center">
+                                {
+                                    !showReply ?
+                                        <IoCaretDownSharp className="text-blue-500 text-sm" />
+                                        :
+                                        <IoCaretUpSharp className="text-blue-500 text-sm" />
+                                }
+                                <span className="font-Roboto text-sm text-blue-500 font-medium ml-2">{props.replycount + " replies"}</span>
+                            </div>
+                            :
+                            null
+                    }
                 </div>
-                {
-                    (props.replycount > 0) ?
-                        <div onClick={() => props.setReplyView(!props.replyView)} className="cursor-pointer px-4 py-2 rounded-3xl hover:bg-blue-500/25 flex items-center">
-                            {
-                                !props.replyView ?
-                                    <IoCaretDownSharp className="text-blue-500 text-sm" />
-                                    :
-                                    <IoCaretUpSharp className="text-blue-500 text-sm" />
-                            }
-                            <span className="font-Roboto text-sm text-blue-500 font-medium ml-2">{props.replycount + " replies"}</span>
-                        </div>
-                        :
-                        null
-                }
             </div>
-
+            {
+                (props.replycount > 0 && showReply) ?
+                    <div className="ml-16 mt-1 flex flex-col gap-y-2">
+                        {
+                            props.replydata.map(reply => (
+                                <CommentReplyTemplate
+                                    key={reply.replyid}
+                                    channel={reply.channel}
+                                    profilepic={reply.profilepic}
+                                    comment={reply.comment}
+                                    date={reply.date}
+                                    likes={reply.likes}
+                                />
+                            ))
+                        }
+                    </div>
+                    :
+                    null
+            }
         </div>
     );
 }
@@ -74,7 +97,7 @@ const CommentReplyTemplate = props => {
             <div>
                 <img src={"/Profile/" + props.profilepic} alt="profilepic" className="w-8 h-8 object-cover rounded-full" />
             </div>
-            <div className="flex flex-col items-start">
+            <div className="flex flex-col items-start w-full">
                 <div className="flex items-center px-1.5">
                     <span className="text-yt-white font-Roboto text-sm font-medium">{props.channel}</span>
                     <span className="text-yt-white/60 font-Roboto text-xs ml-1.5">{calcMonths(props.date)}</span>
@@ -106,11 +129,13 @@ const VideoPageSection = () => {
     const [comments, setComments] = useState([]);
     const [showDesc, setShowDesc] = useState(false);
     const [showAddComment, setShowAddComment] = useState(false);
-    const [replyView, setReplyView] = useState(false);
 
-    const [v] = useSearchParams();
-    const vidId = v.get('v');
+    const [vidId, setVidId] = useState(0);
+    const [params] = useSearchParams();
 
+    useEffect(() => {
+        setVidId(params.get('v'));
+    }, [params]);
 
     useEffect(() => {
         fetch('/Data/VideoData.json')
@@ -132,7 +157,7 @@ const VideoPageSection = () => {
             })
             .then(data => setComments(data))
             .catch(error => console.error('Error fetching data: ', error));
-    }, []);
+    }, [vidId]);
 
     const subCountCalc = count => {
         if (count >= 1000) {
@@ -166,12 +191,12 @@ const VideoPageSection = () => {
     }
 
     return (
-        <div className="mt-20 grid grid-cols-3 grid-rows-2 gap-x-6 gap-y-12 w-[1300px] max-[1050px]:grid-cols-1 max-[1050px]:grid-rows-1 items-start">
+        <div className="mt-20 grid gap-x-6 gap-y-8 grid-cols-3 max-[1050px]:grid-cols-1 w-[1300px] items-start">
 
-            <div className="min-[1050px]:col-span-2">
+            <div className="col-span-2 max-[1050px]:col-span-1">
                 <div>
-                    <video controls className="w-full rounded-lg">
-                        <source src="/Videos/video1.mp4" type="video/mp4" />
+                    <video controls controlsList="nodownload" className="w-full rounded-lg">
+                        <source src={"/Videos/video1.mp4"} type="video/mp4" />
                     </video>
                 </div>
                 <h1 className="text-yt-white text-xl font-Roboto font-bold mt-4">{videoData.title}</h1>
@@ -231,10 +256,19 @@ const VideoPageSection = () => {
                     }
                 </div>
             </div>
+
+
+
             {/* Video List in Right side */}
-            <div className="row-span-2 col-span-1 max-[1050px]:row-span-1 max-[1050px]:col-span-1">
+            <div className="row-span-2 max-[1050px]:row-span-1">
+                <div className="relative pb-6">
+                    <FiltersList />
+                </div>
                 <VideoPageVideoList />
             </div>
+
+
+
             {/* Comment Section */}
             <div className="col-span-2 max-[1050px]:col-span-1">
                 <div className="flex gap-x-8">
@@ -260,39 +294,17 @@ const VideoPageSection = () => {
                 {/* Other comments */}
                 <div className="mt-6 flex flex-col gap-y-6">
                     {
-                        comments.map((comment, index) => (
-                            <div>
-                                <CommentTemplate
-                                    key={comment.id}
-                                    channel={comment.channel}
-                                    profilepic={comment.profilepic}
-                                    comment={comment.comment}
-                                    date={comment.date}
-                                    likes={comment.likes}
-                                    replycount={comment.replycount}
-                                    setReplyView={setReplyView}
-                                    replyView={replyView}
-                                />
-                                {
-                                    replyView ?
-                                        <div className="ml-16 mt-1 flex flex-col gap-y-2">
-                                            {
-                                                comments[index].replies.map(reply => (
-                                                    <CommentReplyTemplate
-                                                        key={reply.replyid}
-                                                        channel={reply.channel}
-                                                        profilepic={reply.profilepic}
-                                                        comment={reply.comment}
-                                                        date={reply.date}
-                                                        likes={reply.likes}
-                                                    />
-                                                ))
-                                            }
-                                        </div>
-                                        :
-                                        null
-                                }
-                            </div>
+                        comments.map(comment => (
+                            <CommentTemplate
+                                key={comment.id}
+                                channel={comment.channel}
+                                profilepic={comment.profilepic}
+                                comment={comment.comment}
+                                date={comment.date}
+                                likes={comment.likes}
+                                replycount={comment.replycount}
+                                replydata={comment.replies}
+                            />
                         ))
                     }
                 </div>

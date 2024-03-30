@@ -1,10 +1,7 @@
-import { useContext, useEffect, useState } from "react";
-import { SidebarContext } from "../ContextProvider/ContextProvider";
+import { useEffect, useState } from "react";
 import ChannelSectionVideoTemplate from "./ChannelSectionVideoTemplate";
 
 const ChannelSectionVideoList = () => {
-    const [sidebarState] = useContext(SidebarContext);
-
     const [videoData, setVideoData] = useState([]);
 
     useEffect(() => {

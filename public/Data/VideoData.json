@@ -1,7 +1,7 @@
 [
     {
         "id": 0,
-        "filename": "video1",
+        "filename": "video1.mp4",
         "channel": "Master Soft",
         "channelusername": "mastersoft",
         "title": "Create a clone of Youtube with React",
@@ -16,7 +16,7 @@
     },
     {
         "id": 1,
-        "filename": "video1",
+        "filename": "video2.mp4",
         "channel": "Master Soft",
         "channelusername": "mastersoft",
         "title": "Create a clone of Youtube with React",
@@ -31,7 +31,7 @@
     },
     {
         "id": 2,
-        "filename": "video1",
+        "filename": "video1.mp4",
         "channel": "Master Soft",
         "channelusername": "mastersoft",
         "title": "Create a clone of Youtube with React blah blah blah blah",
@@ -46,7 +46,7 @@
     },
     {
         "id": 3,
-        "filename": "video1",
+        "filename": "video1.mp4",
         "channel": "Master Soft",
         "channelusername": "mastersoft",
         "title": "Create an app",
@@ -61,7 +61,7 @@
     },
     {
         "id": 4,
-        "filename": "video1",
+        "filename": "video1.mp4",
         "channel": "Master Soft",
         "channelusername": "mastersoft",
         "title": "Create a clone of Youtube with React + Vite + Tailwind in 1 hour",
@@ -76,7 +76,7 @@
     },
     {
         "id": 5,
-        "filename": "video1",
+        "filename": "video1.mp4",
         "channel": "Master Soft",
         "channelusername": "mastersoft",
         "title": "Create a clone of Youtube with React",
@@ -91,7 +91,7 @@
     },
     {
         "id": 6,
-        "filename": "video1",
+        "filename": "video1.mp4",
         "channel": "Master Soft",
         "channelusername": "mastersoft",
         "title": "Create a clone of Youtube with React",
@@ -106,7 +106,7 @@
     },
     {
         "id": 7,
-        "filename": "video1",
+        "filename": "video1.mp4",
         "channel": "Master Soft",
         "channelusername": "mastersoft",
         "title": "Create a clone of Youtube with React",
@@ -121,7 +121,7 @@
     },
     {
         "id": 8,
-        "filename": "video1",
+        "filename": "video1.mp4",
         "channel": "Master Soft",
         "channelusername": "mastersoft",
         "title": "Create a clone of Youtube with React",
