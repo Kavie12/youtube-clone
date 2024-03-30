@@ -194,10 +194,8 @@ const VideoPageSection = () => {
         <div className="my-20 grid gap-x-6 gap-y-8 grid-cols-3 grid-flow-row max-[1050px]:grid-cols-1 w-[1300px] items-start">
 
             <div className="col-span-2 max-[1050px]:col-span-1">
-                <div>
-                    <video controls controlsList="nodownload" className="w-full rounded-lg">
-                        <source src={"/Videos/video1.mp4"} type="video/mp4" />
-                    </video>
+                <div className="video-container">
+                    <video src={"/Videos/" + videoData.filename} controls controlsList="nodownload" className="w-full rounded-lg"></video>
                 </div>
                 <h1 className="text-yt-white text-xl font-Roboto font-bold mt-4">{videoData.title}</h1>
                 <div className="flex mt-4 items-center justify-between max-[640px]:flex-col max-[640px]:items-start max-[640px]:gap-y-2">
