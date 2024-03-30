@@ -46,7 +46,7 @@
     },
     {
         "id": 3,
-        "filename": "video1.mp4",
+        "filename": "video2.mp4",
         "channel": "Alexis Sears",
         "channelusername": "alexis_official",
         "title": "Create an Mobile Application with React Native",
@@ -76,7 +76,7 @@
     },
     {
         "id": 5,
-        "filename": "video1.mp4",
+        "filename": "video2.mp4",
         "channel": "Anna White",
         "channelusername": "annawhite",
         "title": "Create a clone of Youtube with React",
@@ -106,7 +106,7 @@
     },
     {
         "id": 7,
-        "filename": "video1.mp4",
+        "filename": "video2.mp4",
         "channel": "James Gouse",
         "channelusername": "jamesgouse",
         "title": "Create a clone of Youtube with React",
@@ -121,7 +121,7 @@
     },
     {
         "id": 8,
-        "filename": "video2.mp4",
+        "filename": "video1.mp4",
         "channel": "Alan Cooper",
         "channelusername": "alan123",
         "title": "Create a clone of Youtube with React",
@@ -136,7 +136,7 @@
     },
     {
         "id": 9,
-        "filename": "video1.mp4",
+        "filename": "video2.mp4",
         "channel": "Marcus Levin",
         "channelusername": "marcuslevin",
         "title": "Create a clone of Youtube with React",
@@ -166,7 +166,7 @@
     },
     {
         "id": 11,
-        "filename": "video1.mp4",
+        "filename": "video2.mp4",
         "channel": "Jessica Lambert",
         "channelusername": "jessica",
         "title": "Create a clone of Youtube with React + Vite + Tailwind in 1 hour",
@@ -196,7 +196,7 @@
     },
     {
         "id": 13,
-        "filename": "video1.mp4",
+        "filename": "video2.mp4",
         "channel": "Skylar Dias",
         "channelusername": "skylardias",
         "title": "Create a clone of Youtube with React",

@@ -1,30 +1,29 @@
-import React from 'react'
+import React, { Suspense, lazy } from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
-import { BrowserRouter } from "react-router-dom";
-// import Channel from './Components/Channel/Channel';
-// import VideoPage from './Components/VideoPage/VideoPage.jsx';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-// const router = createBrowserRouter([
-//   {
-//     path: "/",
-//     element: <App />,
-//   },
-//   {
-//     path: "/channel/mastersoft",
-//     element: <Channel />,
-//   },
-//   {
-//     path: "/watch",
-//     element: <VideoPage />,
-//   },
-// ]);
+const LazyHome = lazy(() => import('./App'));
+const LazyChannel = lazy(() => import('./Components/Channel/Channel'));
+const LazyVideoPage = lazy(() => import('./Components/VideoPage/VideoPage'));
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Suspense fallback="Loading..."><LazyHome /></Suspense>,
+  },
+  {
+    path: "/channel/:channel",
+    element: <Suspense fallback="Loading..."><LazyChannel /></Suspense>,
+  },
+  {
+    path: "/watch",
+    element: <Suspense fallback="Loading..."><LazyVideoPage /></Suspense>,
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <RouterProvider router={router} />
   </React.StrictMode>,
 )

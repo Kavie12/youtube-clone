@@ -22,7 +22,7 @@ const ProfileMenu = props => {
                 <div className="flex flex-col gap-y-1">
                     <span className="text-yt-white font-Roboto text-sm">Master Soft</span>
                     <span className="text-yt-white font-Roboto text-sm">@mastersoft</span>
-                    <Link to='/channel/mastersoft' className="text-sky-400 font-Roboto text-sm mt-1">View your channel</Link>
+                    <Link to='/channel/@mastersoft' className="text-sky-400 font-Roboto text-sm mt-1">View your channel</Link>
                 </div>
             </div>
             <div className="flex flex-col gap-y-2 py-1.5">

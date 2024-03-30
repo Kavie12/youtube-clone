@@ -2,12 +2,57 @@ import { Link } from "react-router-dom";
 
 const VideoTemplate = props => {
 
-    const calcMonths = date => {
+    const calcDate = date => {
         const today = new Date();
         const uploadDate = new Date(date);
-        const months = (today.getFullYear() - uploadDate.getFullYear()) * 12;
-        return months;
+
+        const timeDifference = today - uploadDate;
+
+        const seconds = Math.floor(timeDifference / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+        const months = Math.floor(days / 30);
+
+        if (months >= 12) {
+            if (Math.floor(months / 12) == 1) {
+                return `${Math.floor(months / 12)} year`;
+            } else {
+                return `${Math.floor(months / 12)} years`;
+            }
+        } else if (months > 0) {
+            if (months == 1) {
+                return `${months} month`;
+            } else {
+                return `${months} months`;
+            }
+        } else if (days > 0) {
+            if (days == 1) {
+                return `${days} day`;
+            } else {
+                return `${days} days`;
+            }
+        } else if (hours > 0) {
+            if (hours == 1) {
+                return `${hours} hour`;
+            } else {
+                return `${hours} hours`;
+            }
+        } else if (minutes > 0) {
+            if (minutes == 1) {
+                return `${minutes} minute`;
+            } else {
+                return `${minutes} minutes`;
+            }
+        } else {
+            if (seconds == 1) {
+                return `${seconds} second`;
+            } else {
+                return `${seconds} seconds`;
+            }
+        }
     }
+
     const calcViews = views => {
         if (views >= 1000) {
             return (parseInt(views / 1000) + "K");
@@ -31,13 +76,13 @@ const VideoTemplate = props => {
                 <span className="text-yt-white bg-yt-black/75 py-1 px-1.5 rounded-md absolute right-1 bottom-1 font-Roboto text-xs font-medium">{calcLength(props.length)}</span>
             </Link>
             <div className="flex gap-x-3">
-                <Link to={'/channel/' + props.channelusername}>
+                <Link to={'/channel/@' + props.channelusername}>
                     <img src={'/Profile/' + props.profilepic} alt="profile_pic" className="w-10 rounded-full" />
                 </Link>
                 <div className="flex flex-col gap-y-0.5">
                     <Link to={'/video/' + props.vidid} className="text-yt-white font-Roboto font-medium">{props.title}</Link>
-                    <Link to={'/channel/' + props.channelusername} className="text-yt-white/70 hover:text-yt-white font-Roboto text-sm">{props.channel}</Link>
-                    <Link to={'/video/' + props.vidid} className="text-yt-white/70 font-Roboto text-sm">{calcViews(props.views) + ' views • ' + calcMonths(props.date) + ' months ago'}</Link>
+                    <Link to={'/channel/@' + props.channelusername} className="text-yt-white/70 hover:text-yt-white font-Roboto text-sm">{props.channel}</Link>
+                    <Link to={'/video/' + props.vidid} className="text-yt-white/70 font-Roboto text-sm">{calcViews(props.views) + ' views • ' + calcDate(props.date) + ' ago'}</Link>
                 </div>
             </div>
         </div>

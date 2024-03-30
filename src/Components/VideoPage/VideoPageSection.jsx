@@ -14,11 +14,55 @@ import FiltersList from "../Filters/FiltersList";
 const CommentTemplate = props => {
     const [showReply, setShowReply] = useState(false);
 
-    const calcMonths = date => {
+    const calcDate = date => {
         const today = new Date();
         const uploadDate = new Date(date);
-        const months = (today.getFullYear() - uploadDate.getFullYear()) * 12;
-        return (months + " months ago");
+
+        const timeDifference = today - uploadDate;
+
+        const seconds = Math.floor(timeDifference / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+        const months = Math.floor(days / 30);
+
+        if (months >= 12) {
+            if (Math.floor(months / 12) == 1) {
+                return `${Math.floor(months / 12)} year`;
+            } else {
+                return `${Math.floor(months / 12)} years`;
+            }
+        } else if (months > 0) {
+            if (months == 1) {
+                return `${months} month`;
+            } else {
+                return `${months} months`;
+            }
+        } else if (days > 0) {
+            if (days == 1) {
+                return `${days} day`;
+            } else {
+                return `${days} days`;
+            }
+        } else if (hours > 0) {
+            if (hours == 1) {
+                return `${hours} hour`;
+            } else {
+                return `${hours} hours`;
+            }
+        } else if (minutes > 0) {
+            if (minutes == 1) {
+                return `${minutes} minute`;
+            } else {
+                return `${minutes} minutes`;
+            }
+        } else {
+            if (seconds == 1) {
+                return `${seconds} second`;
+            } else {
+                return `${seconds} seconds`;
+            }
+        }
     }
     return (
         <div>
@@ -29,7 +73,7 @@ const CommentTemplate = props => {
                 <div className="flex flex-col items-start w-full">
                     <Link to="/channel/mastersoft" className="flex items-center px-1.5">
                         <span className="text-yt-white font-Roboto text-sm font-medium">{props.channel}</span>
-                        <span className="text-yt-white/60 font-Roboto text-xs ml-1.5">{calcMonths(props.date)}</span>
+                        <span className="text-yt-white/60 font-Roboto text-xs ml-1.5">{calcDate(props.date) + ' ago'}</span>
                     </Link>
                     <p className="text-yt-white font-Roboto text-sm mt-1 px-1.5">{props.comment}</p>
                     <div className="mt-1 flex items-center">
@@ -86,11 +130,55 @@ const CommentTemplate = props => {
 }
 
 const CommentReplyTemplate = props => {
-    const calcMonths = date => {
+    const calcDate = date => {
         const today = new Date();
         const uploadDate = new Date(date);
-        const months = (today.getFullYear() - uploadDate.getFullYear()) * 12;
-        return (months + " months ago");
+
+        const timeDifference = today - uploadDate;
+
+        const seconds = Math.floor(timeDifference / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+        const months = Math.floor(days / 30);
+
+        if (months >= 12) {
+            if (Math.floor(months / 12) == 1) {
+                return `${Math.floor(months / 12)} year`;
+            } else {
+                return `${Math.floor(months / 12)} years`;
+            }
+        } else if (months > 0) {
+            if (months == 1) {
+                return `${months} month`;
+            } else {
+                return `${months} months`;
+            }
+        } else if (days > 0) {
+            if (days == 1) {
+                return `${days} day`;
+            } else {
+                return `${days} days`;
+            }
+        } else if (hours > 0) {
+            if (hours == 1) {
+                return `${hours} hour`;
+            } else {
+                return `${hours} hours`;
+            }
+        } else if (minutes > 0) {
+            if (minutes == 1) {
+                return `${minutes} minute`;
+            } else {
+                return `${minutes} minutes`;
+            }
+        } else {
+            if (seconds == 1) {
+                return `${seconds} second`;
+            } else {
+                return `${seconds} seconds`;
+            }
+        }
     }
     return (
         <div className="flex gap-x-2">
@@ -100,7 +188,7 @@ const CommentReplyTemplate = props => {
             <div className="flex flex-col items-start w-full">
                 <div className="flex items-center px-1.5">
                     <span className="text-yt-white font-Roboto text-sm font-medium">{props.channel}</span>
-                    <span className="text-yt-white/60 font-Roboto text-xs ml-1.5">{calcMonths(props.date)}</span>
+                    <span className="text-yt-white/60 font-Roboto text-xs ml-1.5">{calcDate(props.date)}</span>
                 </div>
                 <p className="text-yt-white font-Roboto text-sm mt-1 px-1.5">{props.comment}</p>
                 <div className="mt-1 flex items-center">
@@ -183,11 +271,91 @@ const VideoPageSection = () => {
         }
     }
 
-    const calcMonths = date => {
+    const calcDate = date => {
         const today = new Date();
         const uploadDate = new Date(date);
-        const months = (today.getFullYear() - uploadDate.getFullYear()) * 12;
-        return (months + " months");
+
+        const timeDifference = today - uploadDate;
+
+        const seconds = Math.floor(timeDifference / 1000);
+        const minutes = Math.floor(seconds / 60);
+        const hours = Math.floor(minutes / 60);
+        const days = Math.floor(hours / 24);
+        const months = Math.floor(days / 30);
+
+        if (months >= 12) {
+            if (Math.floor(months / 12) == 1) {
+                return `${Math.floor(months / 12)} year`;
+            } else {
+                return `${Math.floor(months / 12)} years`;
+            }
+        } else if (months > 0) {
+            if (months == 1) {
+                return `${months} month`;
+            } else {
+                return `${months} months`;
+            }
+        } else if (days > 0) {
+            if (days == 1) {
+                return `${days} day`;
+            } else {
+                return `${days} days`;
+            }
+        } else if (hours > 0) {
+            if (hours == 1) {
+                return `${hours} hour`;
+            } else {
+                return `${hours} hours`;
+            }
+        } else if (minutes > 0) {
+            if (minutes == 1) {
+                return `${minutes} minute`;
+            } else {
+                return `${minutes} minutes`;
+            }
+        } else {
+            if (seconds == 1) {
+                return `${seconds} second`;
+            } else {
+                return `${seconds} seconds`;
+            }
+        }
+    }
+
+    const calcDateLong = date => {
+        const uploadDate = new Date(date);
+        const year = uploadDate.getFullYear();
+        let month = "";
+        switch (uploadDate.getMonth()) {
+            case 0: month = "Jan";
+                break;
+            case 1: month = "Feb";
+                break;
+            case 2: month = "Mar";
+                break;
+            case 3: month = "Apr";
+                break;
+            case 4: month = "May";
+                break;
+            case 5: month = "Jun";
+                break;
+            case 6: month = "Jul";
+                break;
+            case 7: month = "Aug";
+                break;
+            case 8: month = "Sep";
+                break;
+            case 9: month = "Oct";
+                break;
+            case 10: month = "Nov";
+                break;
+            case 11: month = "Dec";
+                break;
+            default: month = "error"
+        }
+        const dateNo = uploadDate.getDate();
+
+        return (month + " " + dateNo + ", " + year);
     }
 
     return (
@@ -202,11 +370,11 @@ const VideoPageSection = () => {
                     <div className="flex gap-x-6 items-center">
                         {/* Profile */}
                         <div className="flex gap-x-4 items-center">
-                            <Link to="/channel/mastersoft">
+                            <Link to={"/channel/@" + videoData.channelusername}>
                                 <img src={"/Profile/" + videoData.profilepic} alt="profile" className="w-12 h-12 object-cover rounded-full" />
                             </Link>
                             <div className="flex flex-col gap-y-0.5">
-                                <Link to="/channel/mastersoft">
+                                <Link to={"/channel/@" + videoData.channelusername}>
                                     <h2 className="text-yt-white font-Roboto font-medium">{videoData.channel}</h2>
                                 </Link>
                                 <span className="text-yt-white/75 font-Roboto text-xs">{subCountCalc(videoData.subcount) + " subscribers"}</span>
@@ -244,7 +412,10 @@ const VideoPageSection = () => {
                 </div>
                 {/* Description Box */}
                 <div className={`relative bg-zinc-800 mt-4 rounded-xl py-3 px-3 w-full ${!showDesc ? 'cursor-pointer' : null}`} onClick={() => !showDesc ? setShowDesc(true) : null}>
-                    <h4 className="text-yt-white font-Roboto text-sm font-medium">{calcViews(videoData.views) + "views " + calcMonths(videoData.date) + " ago"}</h4>
+                    <div className="flex gap-x-2">
+                        <h4 className="text-yt-white font-Roboto text-sm font-medium">{`${calcViews(videoData.views)} views`}</h4>
+                        <h4 className="text-yt-white font-Roboto text-sm font-medium">{`${!showDesc ? (calcDate(videoData.date) + ' ago') : calcDateLong(videoData.date)}`}</h4>
+                    </div>
                     <p className={`text-yt-white font-Roboto text-sm ${!showDesc ? 'h-12 overflow-y-hidden' : 'mb-4'}`}>{videoData.desc}</p>
                     {
                         !showDesc ?
@@ -282,7 +453,7 @@ const VideoPageSection = () => {
                 {/* Add Comment */}
                 <div className="flex gap-x-4 mt-6">
                     <div>
-                        <img src={"/Profile/" + videoData.profilepic} alt="profile" className="w-12 h-12 object-cover rounded-full" />
+                        <img src={"/Profile/profile-pic.png"} alt="profile" className="w-12 h-12 object-cover rounded-full" />
                     </div>
                     <div className="w-full">
                         <input type="text" placeholder="Add a comment..." onClick={() => setShowAddComment(true)} className={`w-full font-Roboto text-sm  bg-transparent pb-1 focus:outline-none ${showAddComment ? 'text-yt-white border-yt-white border-b-2' : 'text-yt-white/25 border-yt-white/25 border-b'}`} />

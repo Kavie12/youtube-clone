@@ -1,6 +1,14 @@
 [
     {
         "id": 0,
+        "channelusername": "mastersoft",
+        "channel": "Master Soft",
+        "subs": 17000,
+        "profile": "profile-pic.png",
+        "vidcount": 23
+    },
+    {
+        "id": 1,
         "channelusername": "jamesgouse",
         "channel": "James Gouse",
         "subs": 500,
@@ -8,7 +16,7 @@
         "vidcount": 3
     },
     {
-        "id": 1,
+        "id": 2,
         "channelusername": "alan123",
         "channel": "Alan Cooper",
         "subs": 1200,
@@ -16,7 +24,7 @@
         "vidcount": 12
     },
     {
-        "id": 2,
+        "id": 3,
         "channelusername": "marcuslevin",
         "channel": "Masrcus Levin",
         "subs": 11240,
@@ -24,7 +32,7 @@
         "vidcount": 120
     },
     {
-        "id": 3,
+        "id": 4,
         "channelusername": "alexis_official",
         "channel": "Alexis Sears",
         "subs": 24000,
@@ -32,7 +40,7 @@
         "vidcount": 1100
     },
     {
-        "id": 4,
+        "id": 5,
         "channelusername": "jessica",
         "channel": "Jesica Lambert",
         "subs": 11000,
@@ -40,7 +48,7 @@
         "vidcount": 3
     },
     {
-        "id": 5,
+        "id": 6,
         "channelusername": "annawhite",
         "channel": "Anna White",
         "subs": 500,
@@ -48,7 +56,7 @@
         "vidcount": 3
     },
     {
-        "id": 6,
+        "id": 7,
         "channelusername": "skylardias",
         "channel": "Skylar Dias",
         "subs": 500,

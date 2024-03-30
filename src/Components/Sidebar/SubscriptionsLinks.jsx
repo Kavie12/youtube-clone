@@ -24,10 +24,10 @@ const SubscriptionsLinks = props => {
             {
                 props.showMore ?
                     subData.map((sub, index) => (
-                        <ChannelLink key={index} profile={sub.profile} to={"/" + sub.channelusername} channel={sub.channel} />
+                        <ChannelLink key={index} profile={sub.profile} to={"/channel/@" + sub.channelusername} channel={sub.channel} />
                     )) :
                     subData.slice(0, 7).map((sub, index) => (
-                        <ChannelLink key={index} profile={sub.profile} to={"/" + sub.channelusername} channel={sub.channel} />
+                        <ChannelLink key={index} profile={sub.profile} to={"/channel/@" + sub.channelusername} channel={sub.channel} />
                     ))
             }
         </>
