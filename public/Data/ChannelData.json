@@ -1,0 +1,58 @@
+[
+    {
+        "id": 0,
+        "channelusername": "jamesgouse",
+        "channel": "James Gouse",
+        "subs": 500,
+        "profile": "profile1.jpg",
+        "vidcount": 3
+    },
+    {
+        "id": 1,
+        "channelusername": "alan123",
+        "channel": "Alan Cooper",
+        "subs": 1200,
+        "profile": "profile2.jpg",
+        "vidcount": 12
+    },
+    {
+        "id": 2,
+        "channelusername": "marcuslevin",
+        "channel": "Masrcus Levin",
+        "subs": 11240,
+        "profile": "profile3.jpg",
+        "vidcount": 120
+    },
+    {
+        "id": 3,
+        "channelusername": "alexis_official",
+        "channel": "Alexis Sears",
+        "subs": 24000,
+        "profile": "profile4.jpg",
+        "vidcount": 1100
+    },
+    {
+        "id": 4,
+        "channelusername": "jessica",
+        "channel": "Jesica Lambert",
+        "subs": 11000,
+        "profile": "profile5.jpg",
+        "vidcount": 3
+    },
+    {
+        "id": 5,
+        "channelusername": "annawhite",
+        "channel": "Anna White",
+        "subs": 500,
+        "profile": "profile6.jpg",
+        "vidcount": 3
+    },
+    {
+        "id": 6,
+        "channelusername": "skylardias",
+        "channel": "Skylar Dias",
+        "subs": 500,
+        "profile": "profile7.jpg",
+        "vidcount": 3
+    }
+]

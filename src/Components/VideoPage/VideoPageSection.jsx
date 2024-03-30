@@ -23,14 +23,14 @@ const CommentTemplate = props => {
     return (
         <div>
             <div className="flex gap-x-2">
-                <div>
+                <Link to="/channel/mastersoft">
                     <img src={"/Profile/" + props.profilepic} alt="profilepic" className="w-12 h-12 object-cover rounded-full" />
-                </div>
+                </Link>
                 <div className="flex flex-col items-start w-full">
-                    <div className="flex items-center px-1.5">
+                    <Link to="/channel/mastersoft" className="flex items-center px-1.5">
                         <span className="text-yt-white font-Roboto text-sm font-medium">{props.channel}</span>
                         <span className="text-yt-white/60 font-Roboto text-xs ml-1.5">{calcMonths(props.date)}</span>
-                    </div>
+                    </Link>
                     <p className="text-yt-white font-Roboto text-sm mt-1 px-1.5">{props.comment}</p>
                     <div className="mt-1 flex items-center">
                         <div className="flex items-center">
@@ -191,7 +191,7 @@ const VideoPageSection = () => {
     }
 
     return (
-        <div className="my-20 grid gap-x-6 gap-y-8 grid-cols-3 max-[1050px]:grid-cols-1 w-[1300px] items-start">
+        <div className="my-20 grid gap-x-6 gap-y-8 grid-cols-3 grid-rows-2 max-[1050px]:grid-cols-1 max-[1050px]:grid-rows-3 w-[1300px] items-start">
 
             <div className="col-span-2 max-[1050px]:col-span-1">
                 <div>

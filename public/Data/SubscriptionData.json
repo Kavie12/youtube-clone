@@ -1,80 +1,68 @@
 [
     {
         "id": 0,
-        "to": "/mastersoft",
-        "text": "Master Soft Technologies",
-        "profile": "profile-pic.png"
+        "channelusername": "jamesgouse",
+        "channel": "James Gouse",
+        "profile": "profile1.jpg"
     },
     {
         "id": 1,
-        "to": "/mastersoft",
-        "text": "Master Soft Technologies",
-        "profile": "profile-pic.png"
+        "channelusername": "alan123",
+        "channel": "Alan Cooper",
+        "profile": "profile2.jpg"
     },
     {
         "id": 2,
-        "to": "/mastersoft",
-        "text": "Master Soft Technologies",
-        "profile": "profile-pic.png"
+        "channelusername": "marcuslevin",
+        "channel": "Masrcus Levin",
+        "profile": "profile3.jpg"
     },
     {
         "id": 3,
-        "to": "/mastersoft",
-        "text": "Master Soft Technologies",
-        "profile": "profile-pic.png"
+        "channelusername": "alexis_official",
+        "channel": "Alexis Sears",
+        "profile": "profile4.jpg"
     },
     {
         "id": 4,
-        "to": "/mastersoft",
-        "text": "Master Soft Technologies",
-        "profile": "profile-pic.png"
+        "channelusername": "jessica",
+        "channel": "Jesica Lambert",
+        "profile": "profile5.jpg"
     },
     {
         "id": 5,
-        "to": "/mastersoft",
-        "text": "Master Soft Technologies",
-        "profile": "profile-pic.png"
+        "channelusername": "annawhite",
+        "channel": "Anna White",
+        "profile": "profile6.jpg"
     },
     {
         "id": 6,
-        "to": "/mastersoft",
-        "text": "Master Soft Technologies",
-        "profile": "profile-pic.png"
+        "channelusername": "skylardias",
+        "channel": "Skylar Dias",
+        "profile": "profile7.jpg"
     },
     {
         "id": 7,
-        "to": "/mastersoft",
-        "text": "Master Soft Technologies",
-        "profile": "profile-pic.png"
+        "channelusername": "jamesgouse",
+        "channel": "James Gouse",
+        "profile": "profile1.jpg"
     },
     {
         "id": 8,
-        "to": "/mastersoft",
-        "text": "Master Soft Technologies",
-        "profile": "profile-pic.png"
+        "channelusername": "alan123",
+        "channel": "Alan Cooper",
+        "profile": "profile2.jpg"
     },
     {
         "id": 9,
-        "to": "/mastersoft",
-        "text": "Master Soft Technologies",
-        "profile": "profile-pic.png"
+        "channelusername": "marcuslevin",
+        "channel": "Masrcus Levin",
+        "profile": "profile3.jpg"
     },
     {
         "id": 10,
-        "to": "/mastersoft",
-        "text": "Master Soft Technologies",
-        "profile": "profile-pic.png"
-    },
-    {
-        "id": 11,
-        "to": "/mastersoft",
-        "text": "Master Soft Technologies",
-        "profile": "profile-pic.png"
-    },
-    {
-        "id": 12,
-        "to": "/mastersoft",
-        "text": "Master Soft Technologies",
-        "profile": "profile-pic.png"
+        "channelusername": "alexis_official",
+        "channel": "Alexis Sears",
+        "profile": "profile4.jpg"
     }
 ]

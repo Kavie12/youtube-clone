@@ -40,18 +40,22 @@ const Sidebar = ({ NoSidebarEffect }) => {
                 <div className={`flex-col py-3 ${(!sidebarState) ? 'hidden' : 'flex'}`}>
                     <h2 className='text-yt-white font-Roboto font-medium pl-4 pb-1'>Subscriptions</h2>
                     <SubscriptionsLinks showMore={subShowMoreState} setCount={handleSubCount} />
-                    <button onClick={() => subShowMore()} className={`flex items-center gap-x-6 py-2.5 px-3 w-52 rounded-lg hover:bg-yt-white/15`}>
-                        {
-                            subShowMoreState ?
-                                <IoIosArrowUp className='text-xl text-yt-white' />
-                                :
-                                <IoIosArrowDown className='text-xl text-yt-white' />
-
-                        }
-                        <h2 className='text-yt-white font-Roboto text-sm whitespace-nowrap overflow-hidden text-ellipsis'>
-                            {subShowMoreState ? 'Show less' : 'Show ' + (subCount - 7) + ' more'}
-                        </h2>
-                    </button>
+                    {
+                        subCount > 7 ?
+                            <button onClick={() => subShowMore()} className={`flex items-center gap-x-6 py-2.5 px-3 w-52 rounded-lg hover:bg-yt-white/15`}>
+                                {
+                                    subShowMoreState ?
+                                        <IoIosArrowUp className='text-xl text-yt-white' />
+                                        :
+                                        <IoIosArrowDown className='text-xl text-yt-white' />
+                                }
+                                <h2 className='text-yt-white font-Roboto text-sm whitespace-nowrap overflow-hidden text-ellipsis'>
+                                    {subShowMoreState ? 'Show less' : 'Show ' + (subCount - 7) + ' more'}
+                                </h2>
+                            </button>
+                            :
+                            null
+                    }
                 </div>
                 <div className={`flex-col py-3 ${(!sidebarState) ? 'hidden' : 'flex'}`}>
                     <h2 className='text-yt-white font-Roboto font-medium pl-4 pb-1'>Explore</h2>
