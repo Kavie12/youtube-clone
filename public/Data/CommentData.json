@@ -1,8 +1,9 @@
 [
     {
         "id": 0,
-        "channel": "Master Soft",
-        "profilepic": "profile-pic.png",
+        "channel": "James Gouse",
+        "channelusername": "jamesgouse",
+        "profilepic": "profile1.jpg",
         "comment": "Good video!",
         "date": "2024-02-12",
         "likes": 170,
@@ -10,17 +11,19 @@
         "replies": [
             {
                 "replyid": 0,
-                "channel": "Peter",
-                "profilepic": "profile-pic.png",
+                "channel": "Alan Cooper",
+                "channelusername": "alan123",
+                "profilepic": "profile2.jpg",
                 "comment": "Yes",
                 "date": "2024-02-13",
                 "likes": 1
             },
             {
                 "replyid": 1,
-                "channel": "Donald",
-                "profilepic": "profile-pic.png",
-                "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                "channel": "Masrcus Levin",
+                "channelusername": "marcuslevin",
+                "profilepic": "profile3.jpg",
+                "comment": "Excellent!",
                 "date": "2024-02-13",
                 "likes": 2
             }
@@ -28,17 +31,19 @@
     },
     {
         "id": 1,
-        "channel": "Master Soft",
-        "profilepic": "profile-pic.png",
+        "channel": "Alexis Sears",
+        "channelusername": "alexis_official",
+        "profilepic": "profile4.jpg",
         "comment": "Good video!",
         "date": "2024-02-12",
-        "likes": 170,
+        "likes": 20,
         "replycount": 1,
         "replies": [
             {
                 "replyid": 0,
-                "channel": "Peter",
-                "profilepic": "profile-pic.png",
+                "channel": "Jesica Lambert",
+                "channelusername": "jessica",
+                "profilepic": "profile5.jpg",
                 "comment": "Yes",
                 "date": "2024-02-13",
                 "likes": 1
@@ -47,11 +52,23 @@
     },
     {
         "id": 2,
-        "channel": "Master Soft",
-        "profilepic": "profile-pic.png",
-        "comment": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "channel": "Anna White",
+        "channelusername": "annawhite",
+        "profilepic": "profile6.jpg",
+        "comment": "Amazing. This is really helpful",
         "date": "2024-02-12",
-        "likes": 170,
+        "likes": 7,
+        "replycount": 0,
+        "replies": []
+    },
+    {
+        "id": 3,
+        "channel": "Skylar Dias",
+        "channelusername": "skylardias",
+        "profilepic": "profile7.jpg",
+        "comment": "Good",
+        "date": "2024-02-12",
+        "likes": 0,
         "replycount": 0,
         "replies": []
     }
