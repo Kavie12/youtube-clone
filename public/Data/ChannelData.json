@@ -5,6 +5,7 @@
         "channel": "Master Soft",
         "subs": 17000,
         "profile": "profile-pic.png",
+        "banner": "banner1.jpg",
         "vidcount": 23
     },
     {
@@ -13,6 +14,7 @@
         "channel": "James Gouse",
         "subs": 500,
         "profile": "profile1.jpg",
+        "banner": "banner1.jpg",
         "vidcount": 3
     },
     {
@@ -21,6 +23,7 @@
         "channel": "Alan Cooper",
         "subs": 1200,
         "profile": "profile2.jpg",
+        "banner": "banner1.jpg",
         "vidcount": 12
     },
     {
@@ -29,6 +32,7 @@
         "channel": "Masrcus Levin",
         "subs": 11240,
         "profile": "profile3.jpg",
+        "banner": "banner1.jpg",
         "vidcount": 120
     },
     {
@@ -37,6 +41,7 @@
         "channel": "Alexis Sears",
         "subs": 24000,
         "profile": "profile4.jpg",
+        "banner": "banner1.jpg",
         "vidcount": 1100
     },
     {
@@ -45,6 +50,7 @@
         "channel": "Jesica Lambert",
         "subs": 11000,
         "profile": "profile5.jpg",
+        "banner": "banner1.jpg",
         "vidcount": 3
     },
     {
@@ -53,6 +59,7 @@
         "channel": "Anna White",
         "subs": 500,
         "profile": "profile6.jpg",
+        "banner": "banner1.jpg",
         "vidcount": 3
     },
     {
@@ -61,6 +68,7 @@
         "channel": "Skylar Dias",
         "subs": 500,
         "profile": "profile7.jpg",
+        "banner": "banner1.jpg",
         "vidcount": 3
     }
 ]

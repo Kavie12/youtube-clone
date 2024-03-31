@@ -46,7 +46,7 @@ const ChannelSection = () => {
 
     return (
         <div className={`my-14 ${sidebarState ? 'w-[1060px]' : 'w-[1250px]'}`}>
-            <img src="/Banners/banner1.jpg" alt="banner" className="w-full h-[170px] max-[600px]:h-[100px] object-cover rounded-xl" />
+            <img src={`/Banners/${channelData.banner}`} alt="banner" className="w-full h-[170px] max-[600px]:h-[100px] object-cover rounded-xl" />
             <div className="flex items-stretch gap-x-8 mt-2">
                 <img src={"/Profile/" + channelData.profile} alt="profile" className="w-40 h-40 max-[600px]:hidden object-cover rounded-full" />
                 <div className="flex flex-col items-start justify-center gap-y-4">
