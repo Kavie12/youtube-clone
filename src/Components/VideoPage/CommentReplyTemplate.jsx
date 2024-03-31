@@ -1,5 +1,6 @@
 import { PiThumbsUp } from "react-icons/pi";
 import { PiThumbsDown } from "react-icons/pi";
+import { Link } from "react-router-dom";
 
 const CommentReplyTemplate = props => {
     const calcDate = date => {
@@ -54,14 +55,14 @@ const CommentReplyTemplate = props => {
     }
     return (
         <div className="flex gap-x-2">
-            <div>
+            <Link to={`/channel/@${props.channelusername}`}>
                 <img src={"/Profile/" + props.profilepic} alt="profilepic" className="w-8 h-8 object-cover rounded-full" />
-            </div>
+            </Link>
             <div className="flex flex-col items-start w-full">
-                <div className="flex items-center px-1.5">
+                <Link to={`/channel/@${props.channelusername}`} className="flex items-center px-1.5">
                     <span className="text-yt-white font-Roboto text-sm font-medium">{props.channel}</span>
                     <span className="text-yt-white/60 font-Roboto text-xs ml-1.5">{calcDate(props.date) + ' ago'}</span>
-                </div>
+                </Link>
                 <p className="text-yt-white font-Roboto text-sm mt-1 px-1.5">{props.comment}</p>
                 <div className="mt-1 flex items-center">
                     <div className="flex items-center">

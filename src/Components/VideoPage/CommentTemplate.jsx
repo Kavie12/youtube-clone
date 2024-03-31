@@ -62,11 +62,11 @@ const CommentTemplate = props => {
     return (
         <div>
             <div className="flex gap-x-2">
-                <Link to="/channel/mastersoft">
+                <Link to={`/channel/@${props.channelusername}`}>
                     <img src={"/Profile/" + props.profilepic} alt="profilepic" className="w-12 h-12 object-cover rounded-full" />
                 </Link>
                 <div className="flex flex-col items-start w-full">
-                    <Link to="/channel/mastersoft" className="flex items-center px-1.5">
+                    <Link to={`/channel/@${props.channelusername}`} className="flex items-center px-1.5">
                         <span className="text-yt-white font-Roboto text-sm font-medium">{props.channel}</span>
                         <span className="text-yt-white/60 font-Roboto text-xs ml-1.5">{calcDate(props.date) + ' ago'}</span>
                     </Link>
@@ -114,6 +114,7 @@ const CommentTemplate = props => {
                                 <CommentReplyTemplate
                                     key={reply.replyid}
                                     channel={reply.channel}
+                                    channelusername={reply.channelusername}
                                     profilepic={reply.profilepic}
                                     comment={reply.comment}
                                     date={reply.date}

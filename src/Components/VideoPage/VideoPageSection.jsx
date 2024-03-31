@@ -283,6 +283,7 @@ const VideoPageSection = () => {
                             <CommentTemplate
                                 key={comment.id}
                                 channel={comment.channel}
+                                channelusername={comment.channelusername}
                                 profilepic={comment.profilepic}
                                 comment={comment.comment}
                                 date={comment.date}
