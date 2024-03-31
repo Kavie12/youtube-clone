@@ -20,7 +20,7 @@ const VideoList = () => {
     }, []);
 
     return (
-        <div className={`grid gap-y-10 gap-x-6 ${sidebarState ? `grid-cols-3` : 'grid-cols-4 '} max-[1250px]:grid-cols-3 max-[1050px]:grid-cols-2 max-[750px]:grid-cols-1`}>
+        <div className={`grid gap-y-10 gap-x-6 grid-cols-6 max-[4500px]:grid-cols-5 ${sidebarState ? `max-[2200px]:grid-cols-3` : 'max-[2200px]:grid-cols-4 '} max-[1250px]:grid-cols-3 max-[1050px]:grid-cols-2 max-[750px]:grid-cols-1`}>
             {
                 videoData.map((video, index) => (
                     <VideoTemplate
