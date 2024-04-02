@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { HiMagnifyingGlass } from "react-icons/hi2";
 import ChannelSectionVideoList from "./ChannelSectionVideoList";
+import FeaturedVideo from "./FeaturedVideo";
 import { SidebarContext } from "../ContextProvider/ContextProvider";
 
 
@@ -66,6 +67,9 @@ const ChannelSection = () => {
                     <HiMagnifyingGlass className="text-yt-white cursor-pointer" onClick={() => setSearchOpen(!searchOpen)} />
                     <input type="text" placeholder="Search" className={`bg-transparent border-b-2 border-yt-white outline-none font-Roboto text-yt-white text-sm py-1 ${searchOpen ? 'inline' : 'hidden'}`} onBlur={() => setTimeout(SearchToggle, 200)} />
                 </div>
+            </div>
+            <div className="mt-6 border-b border-yt-white/25">
+                <FeaturedVideo />
             </div>
             <div className="mt-6">
                 <ChannelSectionVideoList />
