@@ -10,7 +10,7 @@ import FiltersList from "../Filters/FiltersList";
 import { RiPlayListAddFill } from "react-icons/ri";
 import { SlFlag } from "react-icons/sl";
 import CommentTemplate from "./CommentTemplate";
-import VideoPlayer from "./VideoPlayer";
+import VideoPlayer from "../VideoPlayer/index";
 
 
 const VideoPageSection = () => {
