@@ -13,9 +13,9 @@ const VideoPlayer = ({ filename }) => {
                 style={{
                     '--video-brand': '#f5f5f5',
                 }}
-                slots={{
-                    googleCastButton: null,
-                }}
+            // slots={{
+            //     googleCastButton: null,
+            // }}
             />
         </MediaPlayer>
     );
