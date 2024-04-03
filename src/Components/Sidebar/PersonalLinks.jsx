@@ -8,7 +8,7 @@ import { PiThumbsUp } from "react-icons/pi";
 const PersonalLinks = () => {
     return (
         <>
-            <SidebarLink text="Your channel" to="/channel/mastersoft">
+            <SidebarLink text="Your channel" to="/channel/@mastersoft">
                 <MdAccountBox className='text-xl text-yt-white' />
             </SidebarLink>
             <SidebarLink text="History" to="/history">
