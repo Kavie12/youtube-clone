@@ -6,7 +6,7 @@ import { defaultLayoutIcons, DefaultVideoLayout } from '@vidstack/react/player/l
 
 const VideoPlayer = ({ filename }) => {
     return (
-        <MediaPlayer src={`/Videos/${filename}`} aspectRatio="16/9">
+        <MediaPlayer src={`/Videos/${filename}`} aspectRatio="16/9" className='z-0'>
             <MediaProvider />
             <DefaultVideoLayout
                 icons={defaultLayoutIcons}
