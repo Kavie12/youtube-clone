@@ -1,6 +1,7 @@
 # Summary
 
-This is a clone of Youtube web page that has been created with React and Tailwind
+This is a clone of user interface of Youtube that has been created with React and Tailwind
+Available pages - Home, Channel, Video page
 
 # References
 
