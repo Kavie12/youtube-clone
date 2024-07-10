@@ -1,6 +1,6 @@
-<h1>Youtube Clone</h1>
+<h1>YouTube Clone</h1>
 
-This is a clone of user interface of Youtube that has been created with React and Tailwind
+This is a clone of user interface of YouTube that has been created with React and Tailwind
 
 Available pages - 
 <a href="https://youtubeclonebymastersoft.netlify.app/">Home</a>, 
